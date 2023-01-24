@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="" />
+<meta name="description" content="#include &amp;lt;string.h&amp;gt;void foo(char *bar) { char c[12]; strcpy(c, bar); // no bounds checking for string length } int main(int argc, char **argv) { foo(argv[1]); return 0; } // 0x41414141 whoami ☯️ Everyone calls me Shanks, I&amp;rsquo;m currently completing my Bachelor&amp;rsquo;s Degree in Computer Science. I have a strong passion for cybersecurity. I&amp;rsquo;m enthusiastic and always excited to learn something new.
+Currently Learning  Reverse Engineering Binary Exploitation Pentesting  Courses that should not be taken simultaneously  Artificial Intelligence Machine Learning Information Retrieval &amp;amp; Web Search  Notable courses  Information System Security Operating Systems Data Structures &amp;amp; Algorithms Artificial Intelligence Machine Learning Information Retrieval &amp;amp; Web Search Data Communication &amp;amp; Networks Parallel Programming  🔧 Technologies &amp;amp; Tools " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -14,7 +15,7 @@
 
     <title>
         
-             :: Shanks&#39; Blog  — A simple theme for Hugo
+             :: Shanks&#39; Blog 
         
     </title>
 
@@ -42,18 +43,21 @@
 
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="#include &lt;string.h&gt;void foo(char *bar) { char c[12]; strcpy(c, bar); // no bounds checking for string length } int main(int argc, char **argv) { foo(argv[1]); return 0; } // 0x41414141 whoami ☯️ Everyone calls me Shanks, I&rsquo;m currently completing my Bachelor&rsquo;s Degree in Computer Science. I have a strong passion for cybersecurity. I&rsquo;m enthusiastic and always excited to learn something new.
+Currently Learning  Reverse Engineering Binary Exploitation Pentesting  Courses that should not be taken simultaneously  Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search  Notable courses  Information System Security Operating Systems Data Structures &amp; Algorithms Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search Data Communication &amp; Networks Parallel Programming  🔧 Technologies &amp; Tools ">
 
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="113">
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="#include &lt;string.h&gt;void foo(char *bar) { char c[12]; strcpy(c, bar); // no bounds checking for string length } int main(int argc, char **argv) { foo(argv[1]); return 0; } // 0x41414141 whoami ☯️ Everyone calls me Shanks, I&rsquo;m currently completing my Bachelor&rsquo;s Degree in Computer Science. I have a strong passion for cybersecurity. I&rsquo;m enthusiastic and always excited to learn something new.
+Currently Learning  Reverse Engineering Binary Exploitation Pentesting  Courses that should not be taken simultaneously  Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search  Notable courses  Information System Security Operating Systems Data Structures &amp; Algorithms Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search Data Communication &amp; Networks Parallel Programming  🔧 Technologies &amp; Tools "/>
 
 
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="#include &lt;string.h&gt;void foo(char *bar) { char c[12]; strcpy(c, bar); // no bounds checking for string length } int main(int argc, char **argv) { foo(argv[1]); return 0; } // 0x41414141 whoami ☯️ Everyone calls me Shanks, I&rsquo;m currently completing my Bachelor&rsquo;s Degree in Computer Science. I have a strong passion for cybersecurity. I&rsquo;m enthusiastic and always excited to learn something new.
+Currently Learning  Reverse Engineering Binary Exploitation Pentesting  Courses that should not be taken simultaneously  Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search  Notable courses  Information System Security Operating Systems Data Structures &amp; Algorithms Artificial Intelligence Machine Learning Information Retrieval &amp; Web Search Data Communication &amp; Networks Parallel Programming  🔧 Technologies &amp; Tools " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://huntershanks.github.io/about/" /><meta property="article:section" content="" />
 
@@ -176,7 +180,54 @@
             
 
             <div class="post-content">
-                
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>bar) {
+   <span style="color:#66d9ef">char</span> c[<span style="color:#ae81ff">12</span>];
+   strcpy(c, bar);  <span style="color:#75715e">// no bounds checking for string length
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+   foo(argv[<span style="color:#ae81ff">1</span>]);
+   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+<span style="color:#75715e">// 0x41414141
+</span></code></pre></div><h1 id="whoami-">whoami ☯️</h1>
+<p>Everyone calls me Shanks, I&rsquo;m currently completing my Bachelor&rsquo;s Degree in Computer Science. I have a strong passion for cybersecurity. I&rsquo;m enthusiastic and always excited to learn something new.</p>
+<h2 id="currently-learning">Currently Learning</h2>
+<ul>
+<li>Reverse Engineering</li>
+<li>Binary Exploitation</li>
+<li>Pentesting</li>
+</ul>
+<h2 id="courses-that-should-not-be-taken-simultaneously">Courses that should not be taken simultaneously</h2>
+<ul>
+<li>Artificial Intelligence</li>
+<li>Machine Learning</li>
+<li>Information Retrieval &amp; Web Search</li>
+</ul>
+<h2 id="notable-courses">Notable courses</h2>
+<ul>
+<li>Information System Security</li>
+<li>Operating Systems</li>
+<li>Data Structures &amp; Algorithms</li>
+<li>Artificial Intelligence</li>
+<li>Machine Learning</li>
+<li>Information Retrieval &amp; Web Search</li>
+<li>Data Communication &amp; Networks</li>
+<li>Parallel Programming</li>
+</ul>
+<h2 id="-technologies--tools">🔧 Technologies &amp; Tools</h2>
+<p><img src="https://img.shields.io/badge/OS-Linux-informational?style=flat&amp;logo=linux&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/OS-Windows-informational?style=flat&amp;logo=windows&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/OS-MacOSX-informational?style=flat&amp;logo=apple&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Code-Python-informational?style=flat&amp;logo=python&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Code-C-informational?style=flat&amp;logo=c&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Code-Java-informational?style=flat&amp;logo=java&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Code-Javascript-informational?style=flat&amp;logo=javascript&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Code-SQL-informational?style=flat&amp;logo=mysql&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Shell-Bash-informational?style=flat&amp;logo=gnu-bash&amp;logoColor=white&amp;color=1E10B5" alt="">
+<img src="https://img.shields.io/badge/Editor-VSCode-informational?style=flat&amp;logo=visualstudiocode&amp;logoColor=white&amp;color=1E10B5" alt=""></p>
+
             </div>
         </article>
 
