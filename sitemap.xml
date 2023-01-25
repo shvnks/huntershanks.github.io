@@ -2,15 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://huntershanks.github.io/posts/blog-posts/0x2/</loc>
+    <lastmod>2023-01-24T19:25:41-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/tags/blog/</loc>
+    <lastmod>2023-01-24T19:25:41-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/</loc>
+    <lastmod>2023-01-24T19:25:41-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/</loc>
+    <lastmod>2023-01-24T19:25:41-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/tags/</loc>
+    <lastmod>2023-01-24T19:25:41-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/blog-posts/0x1/</loc>
+    <lastmod>2023-01-24T17:56:30-05:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/tags/ctf-writeups/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/tags/cyber-security/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/readme/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://huntershanks.github.io/about/</loc>
     <priority>0</priority>
   </url><url>
     <loc>https://huntershanks.github.io/blog/</loc>
   </url><url>
     <loc>https://huntershanks.github.io/series/</loc>
-  </url><url>
-    <loc>https://huntershanks.github.io/</loc>
-  </url><url>
-    <loc>https://huntershanks.github.io/tags/</loc>
   </url>
 </urlset>

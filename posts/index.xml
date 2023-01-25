@@ -1,0 +1,522 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Shanks&#39; Blog</title>
+        <link>https://huntershanks.github.io/posts/</link>
+        <description>Recent content in Posts on Shanks&#39; Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Tue, 24 Jan 2023 19:25:41 -0500</lastBuildDate>
+        <atom:link href="https://huntershanks.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>0x2 - Note about the Cyber Advent writeups</title>
+            <link>https://huntershanks.github.io/posts/blog-posts/0x2/</link>
+            <pubDate>Tue, 24 Jan 2023 19:25:41 -0500</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/blog-posts/0x2/</guid>
+            <description>&lt;p&gt;In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.</p>
+<p>I did in fact complete the entire challenge as seen <a href="https://tryhackme.com/.shanks/badges/adventofcyber4">here</a>. I was running out of time since I was still doing final exams and once I finished that, it was time to spend the holidays with friends and family. I don&rsquo;t think I will finish the writeups since I feel overwhelmed with the amount left.</p>
+<p>I will likely do a few writeups for the <a href="https://issessions.ca/2023/01/issessions-2023-01-12/">ISSessions 2023 CTF</a>.</p>]]></content>
+        </item>
+        
+        <item>
+            <title>0x1 - First post</title>
+            <link>https://huntershanks.github.io/posts/blog-posts/0x1/</link>
+            <pubDate>Tue, 24 Jan 2023 17:56:30 -0500</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/blog-posts/0x1/</guid>
+            <description>&lt;p&gt;This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&amp;rsquo;s hope this goes well.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&rsquo;s hope this goes well.</p>
+<p>I plan to update this relatively frequently, especially as I begin to attend more CTFs and for my own personal development. I think this site can help me grow as a computer scientist who loves all things tech &amp; cyber security.</p>]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 1 [Frameworks] [Someone&#39;s coming to town!]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</guid>
+            <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
+Puzzle #1 Clues:
+ Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
+            <content type="html"><![CDATA[<p>Day 1 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of <code>clues</code> that will guide you to place the puzzle pieces in the correct order.</p>
+<h2 id="puzzle-1">Puzzle #1</h2>
+<p><img src="../imgs/puzzle-1.png" alt="Puzzle 1"></p>
+<p>Clues:</p>
+<ol>
+<li>Research is part of my ask, finding clues in public sources.</li>
+<li>Simple documents I turn into malware.</li>
+<li>A pizza, parcel or payload all have me as an action in common.</li>
+<li>A con is the name of my game, tricking you into believing a false identity.</li>
+<li>Weaknesses are my go-to resources; through them, I make my presence felt.</li>
+<li>I am set up to let you back into the network after you leave.</li>
+<li>Deletion of evidence is part of my process.</li>
+<li>Communication with the compromised goes through me.</li>
+</ol>
+<h3 id="solution">Solution</h3>
+<p><img src="../imgs/puzzle-1-sln.png" alt="Puzzle 1 Solution"></p>
+<h2 id="puzzle-2">Puzzle #2</h2>
+<p><img src="../imgs/puzzle-2.png" alt="Puzzle 2"></p>
+<p>Clues:</p>
+<ol>
+<li>I am an anchor that lets you go on an adventure and explore.</li>
+<li>With me, you can locate new information to expand the attack.</li>
+<li>Once a pawn, I became a King.</li>
+<li>My payloads are triggered to infect all they come in contact with.</li>
+<li>Passwords I collect are the keys to the mainframe.</li>
+<li>Side to side, machine to machine, we hop.</li>
+</ol>
+<h3 id="solution-1">Solution</h3>
+<p><img src="../imgs/puzzle-2-sln.png" alt="Puzzle 2 Solution"></p>
+<h2 id="puzzle-3">Puzzle #3</h2>
+<p><img src="../imgs/puzzle-3.png" alt="Puzzle 3"></p>
+<p>Clues:</p>
+<ol>
+<li>In your vault, I am in.</li>
+<li>Like a dragon, I gather all valuable loot.</li>
+<li>I export gathered treasures.</li>
+<li>With me, your reputation goes tumbling down.</li>
+<li>Goals set, goals attained. I win!</li>
+</ol>
+<h3 id="solution-2">Solution</h3>
+<p><img src="../imgs/puzzle-3-sln.png" alt="Puzzle 3 Solution"></p>
+<h4 id="who-is-the-adversary-that-attacked-santas-network-this-year">Who is the adversary that attacked Santa&rsquo;s network this year?</h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>The Bandit Yeti!
+</code></pre><h4 id="whats-the-flag-that-they-left-behind">What&rsquo;s the flag that they left behind?</h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>THM{IT'S A Y3T1 CHR1$TMA$}
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 2 [Log Analysis] [Santa&#39;s Naughty &amp; Nice Log]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</guid>
+            <description>Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
+Learning Objectives In today’s task, you will:
+ Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
+            <content type="html"><![CDATA[<p>Day 2 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.</p>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>In today’s task, you will:</p>
+<ul>
+<li>Learn what log files are and why they’re useful</li>
+<li>Understand what valuable information log files can contain</li>
+<li>Understand some common locations these logs file can be found</li>
+<li>Use some basic Linux commands to start analysing log files for valuable information</li>
+<li>Help Elf McBlue track down the Bandit Yeti APT!</li>
+</ul>
+<h4 id="use-the-ls-command-to-list-the-files-present-in-the-current-directory-how-many-log-files-are-present">Use the <code>ls</code> command to list the files present in the current directory. How many log files are present?</h4>
+<p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
+<p>Count the number of files that are output to the terminal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
+SSHD.log webserver.log
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>2
+</code></pre><h4 id="elf-mcskidy-managed-to-capture-the-logs-generated-by-the-web-server-what-is-the-name-of-this-log-file">Elf McSkidy managed to capture the logs generated by the web server. What is the name of this log file?</h4>
+<p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
+<p>We are looking for a webserver log file, conveniently, we notice <code>webserver.log</code> exists within the <code>/home/elfmcblue</code> directory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
+SSHD.log webserver.log
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>webserrver.log
+</code></pre><h4 id="on-what-day-was-santas-naughty-and-nice-list-stolen">On what day was Santa&rsquo;s naughty and nice list stolen?</h4>
+<p>Our first attempt with <code>grep</code>. We chose the <code>-i</code> option because we aren&rsquo;t sure how the word <code>stolen</code> will be written in the log files. Furthermore since we are interested in the webserver logs, we will grep through that file. We notice that the date is November 18th. Checking our calendar, that leads us to the answer. Another possible way to arrive to this conclusion is</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;stolen&#34;</span> webserver.log
+10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:23 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /ReceivingStolenGoodsOnline HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:24 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /011003-new_uk_database_mkes_stolen_pho HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /alone_on_preikestoten HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /stolen_pc_holds_1 HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>Friday
+</code></pre><h4 id="what-is-the-ip-address-of-the-attacker">What is the IP address of the attacker?</h4>
+<p>In the output of the above grep command, we notice that the IP address is shown in the logs. This IP address is particularly persistent in its requests to the webserver. Therefore we can infer that the IP address making these requests is from the attacker.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>10.10.249.191
+</code></pre><h4 id="what-is-the-name-of-the-important-list-that-the-attacker-stole-from-santa">What is the name of the important list that the attacker stole from Santa?</h4>
+<p>Knowing that the file we are looking for is a <code>list</code>, we can infer that the most likely name format of this list would be <code>something_list.txt</code> or <code>someList.txt</code>. It is common practice to use a easily readable file format like <code>.txt</code> extension. Therefore we use <code>-i</code> to ignore the case in the event that the list is written in <a href="https://en.wikipedia.org/wiki/Snake_case">snake case</a> or <a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>. We could have used the <code>-r</code> option instead of specifying the <code>webserver.log</code> file in case there were more than 2 files in the current working directory. However, it was most likely going to be logged within the <code>webserver.log</code> file so we chose that option instead.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;list.txt&#34;</span> webserver.log
+10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:34:39 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /santaslist.txt HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">133872</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Wget/1.19.4 (linux-gnu)&#34;</span>
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>santaslist.txt
+</code></pre><h4 id="look-through-the-log-files-for-the-flag-the-format-of-the-flag-is-thm">Look through the log files for the flag. The format of the flag is: THM</h4>
+<p>Using the <code>-r</code> option, we recursively iterate through all of the files within the current working directory (<code>pwd</code>) and search for the beginning portion of the flag format that consistantly remains the same: <code>&quot;THM{&quot;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -r <span style="color:#e6db74">&#34;THM{&#34;</span>
+SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>THM{STOLENSANTASLIST}
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 3 [OSINT] [Nothing escapes detective McRed]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</guid>
+            <description>Day 3 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about OSINT techniques.
+Learning Objectives  What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories  What is the name of the Registrar for the domain santagift.</description>
+            <content type="html"><![CDATA[<p>Day 3 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about OSINT techniques.</p>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li>What is OSINT, and what techniques can extract useful information against a website or target?</li>
+<li>Using dorks to find specific information on the Google search engine</li>
+<li>Extracting hidden directories through the Robots.txt file</li>
+<li>Domain owner information through WHOIS lookup</li>
+<li>Searching data from hacked databases</li>
+<li>Acquiring sensitive information from publicly available GitHub repositories</li>
+</ul>
+<h4 id="what-is-the-name-of-the-registrar-for-the-domain-santagiftshop">What is the name of the Registrar for the domain santagift.shop?</h4>
+<p>By going to the <a href="https://who.is/whois/github.com">WHOIS</a> lookup website, we enter either of the provided domains: <code>santagift.shop</code> or <code>qa.santagift.shop</code> and you will see that the Registar name is NameCheap Inc.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>NAMECHEAP INC
+</code></pre><h4 id="find-the-websites-source-code-repository-on-githubcom-and-open-the-file-containing-sensitive-credentials-can-you-find-the-flag">Find the website&rsquo;s source code (repository) on github.com and open the file containing sensitive credentials. Can you find the flag?</h4>
+<p>Reading through the <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/README.md">Github&rsquo;s README</a>, leads you to the <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/config.php">config.php</a> file which is where you will find the flag on <code>line 2</code>.
+<strong>Answer:</strong></p>
+<pre tabindex="0"><code>{THM_OSINT_WORKS}
+</code></pre><h4 id="what-is-the-name-of-the-file-containing-passwords">What is the name of the file containing passwords?</h4>
+<p>Coincidentally, the same <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/config.php">config.php</a> file from above also contains the passwords.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>config.php
+</code></pre><h4 id="what-is-the-name-of-the-qa-server-associated-with-the-website">What is the name of the QA server associated with the website?</h4>
+<p>The answer can be deduced either from the <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/README.md">README</a>, where they mention the 2 main domains: <code>santagift.shop</code> or <code>qa.santagift.shop</code>, which you can use deductive reasoning. In addition if you checkout the <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/config.php">config.php</a> you will see on <code>line 20</code>, a comment that states:</p>
+<blockquote>
+<p>Incase of QA, it will be qa.santagift.shop</p>
+</blockquote>
+<p>Thus we have found the answer.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>qa.santagift.shop
+</code></pre><h4 id="what-is-the-db_password-that-is-being-reused-between-the-qa-and-prod-environments">What is the DB_PASSWORD that is being reused between the QA and PROD environments?</h4>
+<p>Within the <a href="https://github.com/muhammadthm/SantaGiftShop/blob/main/config.php">config.php</a> file we can use <code>ctrl+f</code> to find the <code>DB_PASSWORD</code> for both the QA and PROD environments. You will see the answer on <code>line 31</code>.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>S@nta2022
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 4 [Scanning] [Scanning through the snow]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</guid>
+            <description>Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
+Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
+            <content type="html"><![CDATA[<p>Day 4 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about various scanning techniques, particularly with network scanning tools.</p>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li>What is Scanning?</li>
+<li>Scanning types</li>
+<li>Scanning techniques</li>
+<li>Scanning tools</li>
+</ul>
+<h4 id="what-is-the-name-of-the-http-server-running-on-the-remote-host">What is the name of the HTTP server running on the remote host?</h4>
+<p>To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is <code>nmap -sV MACHINE_IP</code> which will return a list of running services on a live host. See output below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ nmap -sV MACHINE_IP
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-04 20:12 EST
+Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+Host is up <span style="color:#f92672">(</span>0.099s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">996</span> closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+80/tcp  open  http        Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+Service Info: Host: IP-MACHINE_IP; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>Apache
+</code></pre><h4 id="what-is-the-name-of-the-service-running-on-port-22-on-the-qa-server">What is the name of the service running on port 22 on the QA server?</h4>
+<p>To determine the name of the service that we are interested in we can observe the output from the above question and we notice that the service running on port 22 is <code>ssh</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</code></pre></div><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>ssh
+</code></pre><h4 id="what-flag-can-you-find-after-successfully-accessing-the-samba-service">What flag can you find after successfully accessing the Samba service?</h4>
+<p>To retrieve the flag can be accomplshed in a variety of different ways. I attempted to access the Samba share through the terminal however I could not gain access to the folder of interest. Therefore I went through THM&rsquo;s AttackBox to accomplish the next 2 tasks.</p>
+<ol>
+<li>Open the file explorer on the AttackBox</li>
+<li>Enter <code>smb://MACHINE_IP</code> in the address/path bar, next to <code>Location:</code></li>
+<li>Select Registered User</li>
+<li>Enter the following credentials (we left the domain as is):</li>
+</ol>
+<pre tabindex="0"><code>username: ubuntu
+password: S@nta2022
+</code></pre><ol start="5">
+<li>Click <code>connect</code></li>
+<li>Navigate to the <code>admins</code> folder</li>
+<li>Open flag.txt to retrieve the flag</li>
+</ol>
+<p><img src="../imgs/smb-login.png" alt="smb-login"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>{THM_SANTA_SMB_SERVER}
+</code></pre><h4 id="what-is-the-password-for-the-username-santahr">What is the password for the username santahr?</h4>
+<p>From within the <code>admins</code> folder that we accessed in the above question, open the <code>userlist.txt</code> and retrieve the password from the user <code>santahr</code>.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>santa25
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 5 [Brute-Forcing] [He knows when you&#39;re awake]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</guid>
+            <description>Day 5 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
+Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
+            <content type="html"><![CDATA[<p>Day 5 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li>Learn about common remote access services.</li>
+<li>Recognize a listening VNC port in a port scan.</li>
+<li>Use a tool to find the VNC server’s password.</li>
+<li>Connect to the VNC server using a VNC client.</li>
+</ul>
+<h4 id="use-hydra-to-find-the-vnc-password-of-the-target-with-ip-address-machine_ip-what-is-the-password">Use Hydra to find the VNC password of the target with IP address <code>MACHINE_IP</code>. What is the password?</h4>
+<p>Before we begin using Hydra, we can use <code>nmap</code> to see that there is a vnc service running on our target machine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ sudo nmap -sS MACHINE_IP
+Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-05 20:45 EST
+Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+Host is up <span style="color:#f92672">(</span>0.12s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">998</span> closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+5900/tcp open  vnc
+
+Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 3.00 seconds
+</code></pre></div><p>Now onward to using hydra. For this we don&rsquo;t pass any username (<code>-l</code> option) but we will be using the popular <code>rockyou.txt</code> file which contains the worlds most common passwords. We will accomplish the task using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ hydra -P /path/to/rockyou.txt MACHINE_IP vnc
+</code></pre></div><p>Below is the output from using the above command in the AttackBox:</p>
+<p><img src="../imgs/hydra-pw.png" alt="hydra"></p>
+<p>We notice that after some time, hydra does in fact find the password to the vnc server via brute-force.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>1q2w3e4r
+</code></pre><h4 id="using-a-vnc-client-on-the-attackbox-connect-to-the-target-of-ip-address-machine_ip-what-is-the-flag-written-on-the-targets-screen">Using a VNC client on the AttackBox, connect to the target of IP address <code>MACHINE_IP</code>. What is the flag written on the target’s screen?</h4>
+<p>To retrieve the flag, you need an RDP client that supports the VNC protocol to access the machine. I used the included <a href="https://www.remmina.org/">Remmina</a> client within the AttackBox to gain access to the target machine. To log into the device you can follow THM&rsquo;s steps or read them below:</p>
+<ol>
+<li>Launch <a href="https://www.remmina.org/">Remmina</a></li>
+</ol>
+<p><img src="../imgs/startup.png" alt="startup"></p>
+<ol start="2">
+<li>Close the <code>Unlock Login Keyring</code> dialog box if it appears.</li>
+</ol>
+<p><img src="../imgs/dialog.png" alt="dialog"></p>
+<ol start="3">
+<li>Change the protocol to VNC.</li>
+<li>Enter the IP Address of the target system.</li>
+</ol>
+<p><img src="../imgs/rdp.png" alt="rdp"></p>
+<ol start="5">
+<li>The wallpaper of the system contains the flag</li>
+</ol>
+<p><img src="../imgs/vnc-flag.png" alt="THM-flag"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>THM{I_SEE_YOUR_SCREEN}
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 6 [Email Analysis] [It&#39;s beginning to look a lot like phishing]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</guid>
+            <description>Day 6 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
+Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
+            <content type="html"><![CDATA[<p>Day 6 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li>Learn what email analysis is and why it still matters.</li>
+<li>Learn the email header sections.</li>
+<li>Learn the essential questions to ask in email analysis.</li>
+<li>Learn how to use email header sections to evaluate an email.</li>
+<li>Learn to use additional tools to discover email attachments and conduct further analysis.</li>
+<li>Help the Elf team investigate the suspicious email received.</li>
+</ul>
+<h4 id="what-is-the-email-address-of-the-sender">What is the email address of the sender?</h4>
+<p>Following the guide that TryHackMe showed us, we use the given command <strong>after</strong> we <code>cd</code> into the <code>Desktop</code> directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ emlAnalyzer -i Urgent<span style="color:#ae81ff">\:</span>.eml --header --html -u --text --extract-all
+</code></pre></div><p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<p><img src="../imgs/sender.png" alt="sender"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>chief.elf@santaclaus.thm
+</code></pre><h4 id="what-is-the-return-address">What is the return address?</h4>
+<p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<p><img src="../imgs/return-path.png" alt="return-path"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>murphy.evident@bandityeti.thm
+</code></pre><h4 id="on-whose-behalf-was-the-email-sent">On whose behalf was the email sent?</h4>
+<p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<p><img src="../imgs/sender.png" alt="sender"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>Chief Elf
+</code></pre><h4 id="what-is-the-x-spam-score">What is the X-spam score?</h4>
+<p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<p><img src="../imgs/spam-score.png" alt="spam-score"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>3
+</code></pre><h4 id="what-is-hidden-in-the-value-of-the-message-id-field">What is hidden in the value of the Message-ID field?</h4>
+<p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<p><img src="../imgs/msg-id.png" alt="msg-id"></p>
+<p>Now we notice that the <code>Message-Id</code> is written in Base64 [you can tell by the length of the ID and the hexadecimal values given], from here we use a base64 decoder of our choosing. I google base64 decoder and <a href="https://www.base64decode.org/">here</a> was the first link that I got. Now we only insert this: <code>QW9DMjAyMl9FbWFpbF9BbmFseXNpcw==</code> portion of the ID since the <code>&lt;&gt;</code> characters simply indicate the beginning and end of the ID. The answer is the output from the base64 decoder.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>AoC2022_Email_Analysis
+</code></pre><h4 id="visit-the-email-reputation-check-website-provided-in-the-task-what-is-the-reputation-result-of-the-senders-email-address">Visit the email reputation check website provided in the task. What is the reputation result of the sender&rsquo;s email address?</h4>
+<p>We visit the <a href="https://emailrep.io/">Email Reputation Analyzer</a> from the guide and enter the senders email: <code>murphy.evident@bandityeti.thm</code></p>
+<p><img src="../imgs/risky.png" alt="risky"></p>
+<p>We see that the email is flagged as risky.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>risky
+</code></pre><h4 id="check-the-attachments-what-is-the-filename-of-the-attachment">Check the attachments. What is the filename of the attachment?</h4>
+<p>From the original <code>emlAnalyzer</code> command that we ran earlier, we can see in our <code>Desktop</code> folder that a new folder named <code>eml-attachments</code> has appeared after completing. From the terminal, we shall <code>cd</code> into that directory and look for the attachment name. Notice that if you attempt to open it that we get an error. The VM is hinting that the file may not be what it seems based on the error output.</p>
+<p><img src="../imgs/bin.png" alt="bin"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>Division _ of _ labour-Load_share_plan.doc
+</code></pre><h4 id="what-is-the-hash-value-of-the-attachment">What is the hash value of the attachment?</h4>
+<p>Now we will use the <code>sha256sum</code> to calculate the file&rsquo;s hash value. Below is the output of that command.</p>
+<pre tabindex="0"><code>$ sha256sum Division _ of _ labour-Load_share_plan.doc
+0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467
+</code></pre><p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467
+</code></pre><h4 id="visit-the-virus-total-website-and-use-the-hash-value-to-search-navigate-to-the-behaviour-section-what-is-the-second-tactic-marked-in-the-mitre-attck-section">Visit the Virus Total website and use the hash value to search. Navigate to the behaviour section. What is the second tactic marked in the Mitre ATT&amp;CK section?</h4>
+<p>Following the instructions, we head over to <a href="https://www.virustotal.com/gui/home/upload">Virus Total</a>, click <code>Search</code> and paste the hash that we found above: <code>0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467</code>. After navigating to the <code>behaviour</code> section we find the second tactic as seen below:</p>
+<p><img src="../imgs/def-evasion.png" alt="def-evasion"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>Defense Evasion
+</code></pre><h4 id="visit-the-inquest-website-and-use-the-hash-value-to-search-what-is-the-subcategory-of-the-file">Visit the InQuest website and use the hash value to search. What is the subcategory of the file?</h4>
+<p>Now we visit <a href="https://labs.inquest.net/">InQuest</a> and pass the hash value [<code>0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467</code>] into the <code>INDICATOR LOOKUP</code>. Click on view full details and we see the subcategory below:</p>
+<p><img src="../imgs/macro.png" alt="macro"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>macro_hunter
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 7 [CyberChef] [Maldocs roasting on an open fire]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</guid>
+            <description>Day 7 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives  What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data  What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
+Answer:
+9.49.0 How many recipes were used to extract URLs from the malicious doc?</description>
+            <content type="html"><![CDATA[<p>Day 7 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li>What is CyberChef</li>
+<li>What are the capabilities of CyberChef</li>
+<li>How to leverage CyberChef to analyze a malicious document</li>
+<li>How to deobfuscate, filter and parse the data</li>
+</ul>
+<h4 id="what-is-the-version-of-cyberchef-found-in-the-attached-vm">What is the version of CyberChef found in the attached VM?</h4>
+<p>Reading the VMs file path in the browser we see the version displayed.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>9.49.0
+</code></pre><h4 id="how-many-recipes-were-used-to-extract-urls-from-the-malicious-doc">How many recipes were used to extract URLs from the malicious doc?</h4>
+<p>For the subsequent questions, all of them can be answered simply by following THM&rsquo;s CyberChef instructions. For this question, simply count the number of recipes under the <code>Recipe</code> panel.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>10
+</code></pre><h4 id="we-found-a-url-that-was-downloading-a-suspicious-file-what-is-the-name-of-that-malware">We found a URL that was downloading a suspicious file; what is the name of that malware?</h4>
+<p>Looking at the list of urls from our defang step we see:</p>
+<p><img src="../imgs/urls-final.png" alt="defang"></p>
+<p>Grab that malicious file name and submit!</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>mysterygift.exe
+</code></pre><h4 id="what-is-the-last-defanged-url-of-the-bandityeti-domain-found-in-the-last-step">What is the last defanged URL of the <strong>bandityeti</strong> domain found in the last step?</h4>
+<p>Looking at the last url from our defang step we see:</p>
+<p><img src="../imgs/urls-final.png" alt="defang"></p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>hxxps[://]cdn.[.]bandityeti[.]thm/files/index/
+</code></pre><h4 id="what-is-the-ticket-found-in-one-of-the-domains-format-domaingolden_flag">What is the ticket found in one of the domains? (Format: Domain/&lt;GOLDEN_FLAG&gt;)</h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>THM_MYSTERY_FLAG
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Cyber Advent 2022 - Day 8 [Smart Contracts] [Last Christmas I gave you my ETH]</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</guid>
+            <description>Day 8 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about smart contracts and their relation to the blockchain.
+Downloadable files These are the included files to complete the day-8 task.
+Learning Objectives  Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
+            <content type="html"><![CDATA[<p>Day 8 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about smart contracts and their relation to the blockchain.</p>
+<h2 id="downloadable-files">Downloadable files</h2>
+<p>These are the <a href="https://github.com/HunterShanks/cyber-advent-2022/tree/master/day-08/AoCSmartContracts">included files</a> to complete the day-8 task.</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li>Explain what smart contracts are, how they relate to the blockchain, and why they are important.</li>
+<li>Understand how contracts are related, what they are built upon, and standard core functions.</li>
+<li>Understand and exploit a common smart contract vulnerability.</li>
+</ul>
+<h4 id="what-flag-is-found-after-attacking-the-provided-etherstore-contract">What flag is found after attacking the provided EtherStore Contract?</h4>
+<p><strong>Preface:</strong> This is not my area of expertise, in fact blockchain technology is where my cyber security skills are the weakest so this challenge took me longer than I&rsquo;d like to admit. However, by reading through the instructions several times I was able to retrieve the flag successfully.</p>
+<p>As for the method to retrieve the flag, follow the instructions until you get to <code>Step 4</code>. From here it feels vague but all that needs to be done is put a value [preferably small since it will consume a lot of memory otherwise, for reference I used <code>1</code>], and select the <code>Attack</code> contract.</p>
+<p>From there you scroll down to <code>Deployed Contracts</code> and click attack and wait for the <code>console.log</code> to return the flag.</p>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>flag{411_ur_37h_15_m1n3}
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>TryHackMe Advent of Cyber 2022</title>
+            <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/readme/</link>
+            <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/readme/</guid>
+            <description>Welcome to the annual event of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This repo contains all of the solutions completed by myself for the purpose of self-learning and educating others that may stumble upon this repo. Each folder will contain the day&amp;rsquo;s task(s) and solutions as well as any software/programs/scripts that I may create. Enjoy!
+Authors  Shanks  Contributing Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</description>
+            <content type="html"><![CDATA[<p><img src="../imgs/cyber-advent-2022-logo.png" alt="Cyber Advent 2022"></p>
+<p>Welcome to the annual event of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber</a> for 2022! This repo contains all of the solutions completed by myself for the purpose of self-learning and educating others that may stumble upon this repo. Each folder will contain the day&rsquo;s task(s) and solutions as well as any software/programs/scripts that I may create. Enjoy!</p>
+<h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>Please make sure to update tests as appropriate.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the <a href="https://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

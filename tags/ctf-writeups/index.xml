@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shanks&#39; Blog</title>
-    <link>https://huntershanks.github.io/</link>
-    <description>Recent content on Shanks&#39; Blog</description>
+    <title>ctf-writeups on Shanks&#39; Blog</title>
+    <link>https://huntershanks.github.io/tags/ctf-writeups/</link>
+    <description>Recent content in ctf-writeups on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Jan 2023 19:25:41 -0500</lastBuildDate><atom:link href="https://huntershanks.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>0x2 - Note about the Cyber Advent writeups</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x2/</link>
-      <pubDate>Tue, 24 Jan 2023 19:25:41 -0500</pubDate>
-      
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x2/</guid>
-      <description>&lt;p&gt;In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>0x1 - First post</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x1/</link>
-      <pubDate>Tue, 24 Jan 2023 17:56:30 -0500</pubDate>
-      
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x1/</guid>
-      <description>&lt;p&gt;This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&amp;rsquo;s hope this goes well.&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Fri, 23 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://huntershanks.github.io/tags/ctf-writeups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Advent 2022 - Day 1 [Frameworks] [Someone&#39;s coming to town!]</title>
       <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</link>
@@ -109,6 +91,16 @@ Answer:
       <description>Day 8 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about smart contracts and their relation to the blockchain.
 Downloadable files These are the included files to complete the day-8 task.
 Learning Objectives  Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
+    </item>
+    
+    <item>
+      <title>TryHackMe Advent of Cyber 2022</title>
+      <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/readme/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/readme/</guid>
+      <description>Welcome to the annual event of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This repo contains all of the solutions completed by myself for the purpose of self-learning and educating others that may stumble upon this repo. Each folder will contain the day&amp;rsquo;s task(s) and solutions as well as any software/programs/scripts that I may create. Enjoy!
+Authors  Shanks  Contributing Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</description>
     </item>
     
   </channel>
