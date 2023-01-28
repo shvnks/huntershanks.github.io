@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Jan 2023 19:25:41 -0500</lastBuildDate><atom:link href="https://huntershanks.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate><atom:link href="https://huntershanks.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0x3 - ISSessions 2023 Standings released</title>
+      <link>https://huntershanks.github.io/posts/blog-posts/0x3/</link>
+      <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
+      
+      <guid>https://huntershanks.github.io/posts/blog-posts/0x3/</guid>
+      <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>0x2 - Note about the Cyber Advent writeups</title>
       <link>https://huntershanks.github.io/posts/blog-posts/0x2/</link>
@@ -98,17 +107,6 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
 Learning Objectives  What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data  What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
 Answer:
 9.49.0 How many recipes were used to extract URLs from the malicious doc?</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 8 [Smart Contracts] [Last Christmas I gave you my ETH]</title>
-      <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</guid>
-      <description>Day 8 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about smart contracts and their relation to the blockchain.
-Downloadable files These are the included files to complete the day-8 task.
-Learning Objectives  Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
     </item>
     
   </channel>

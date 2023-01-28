@@ -6,8 +6,57 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 24 Jan 2023 19:25:41 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate>
         <atom:link href="https://huntershanks.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>0x3 - ISSessions 2023 Standings released</title>
+            <link>https://huntershanks.github.io/posts/blog-posts/0x3/</link>
+            <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
+            
+            <guid>https://huntershanks.github.io/posts/blog-posts/0x3/</guid>
+            <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>Some cool news came about yesterday. ISSessions had their <a href="https://www.youtube.com/watch?v=gu28GgjoEfQ">recap</a> meeting where they released some statistics from the CTF including the top 100 players.</p>
+<p>I did better than expected considering this was my first CTF that I&rsquo;ve partaken live; I had some experience with <a href="https://picoctf.org/">picoCTF</a>. I placed 21st overall with 808 points total.</p>
+<p><img src="../imgs/issessions2023.png" alt="ISSessions2023-standing"></p>
+<p>In total, I had 15 number of solves. I just managed to get at least 1 solve in each category. I&rsquo;m hoping to improve significantly in my upcoming CTFs. Ideally I would like to get good with reverse engineering but that is a steep slope. It&rsquo;ll take a lot of work but I&rsquo;m sure it will pay off in the end.</p>
+<p><img src="../imgs/issessions2023-mysolves.png" alt="ISSessions2023-mysolves"></p>
+<p>If you&rsquo;re interested in finding CTFs, <a href="https://ctftime.org/">CTF time</a> is the best resource that I found. Below is a couple of upcoming CTFs that I&rsquo;ve signed up for.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Where</th>
+<th>Date (MM/DD)</th>
+<th>Timezone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>magpieCTF</td>
+<td><a href="https://2023.magpiectf.ca/">https://2023.magpiectf.ca/</a></td>
+<td>Online or Calgary, CA</td>
+<td>02/24 - 02/26</td>
+<td>GMT-7</td>
+</tr>
+<tr>
+<td>NorthSec CTF</td>
+<td><a href="https://nsec.io/">https://nsec.io/</a></td>
+<td>Bonsecours Market 350 St Paul St East Montreal, QC H2Y 1H2</td>
+<td>05/18 - 05/26</td>
+<td>GMT-5</td>
+</tr>
+<tr>
+<td>picoCTF</td>
+<td><a href="https://picoctf.org/">https://picoctf.org/</a></td>
+<td>Online</td>
+<td>03/14 - 03/28</td>
+<td>TBA</td>
+</tr>
+</tbody>
+</table>]]></content>
+        </item>
         
         <item>
             <title>0x2 - Note about the Cyber Advent writeups</title>
