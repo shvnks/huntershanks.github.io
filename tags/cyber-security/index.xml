@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate><atom:link href="https://huntershanks.github.io/tags/cyber-security/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>0x3 - ISSessions 2023 Standings released</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x3/</link>
-      <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
-      
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x3/</guid>
-      <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Fri, 23 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://huntershanks.github.io/tags/cyber-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Advent 2022 - Day 1 [Frameworks] [Someone&#39;s coming to town!]</title>
       <link>https://huntershanks.github.io/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</link>
