@@ -7,7 +7,72 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Feb 2023 14:26:49 -0500</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MagpieCTF 2023 - This outta be large enough right?</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</link>
+      <pubDate>Tue, 28 Feb 2023 14:26:49 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</guid>
+      <description>We&amp;rsquo;re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&amp;rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.</description>
+    </item>
+    
+    <item>
+      <title>MagpieCTF 2023 - No Password Here</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</link>
+      <pubDate>Tue, 28 Feb 2023 13:01:17 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</guid>
+      <description>This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&amp;rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</description>
+    </item>
+    
+    <item>
+      <title>MagpieCTF 2023 - What is Password</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</link>
+      <pubDate>Tue, 28 Feb 2023 12:45:30 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</guid>
+      <description>This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
+Solution First we open the file in Wireshark.
+Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.</description>
+    </item>
+    
+    <item>
+      <title>MagpieCTF 2023 - Chocolate Chips with Zero G</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</link>
+      <pubDate>Mon, 27 Feb 2023 23:36:45 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</guid>
+      <description>This challenge had us visit our targets website, and look for an insecure admin portal.
+Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
+Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.</description>
+    </item>
+    
+    <item>
+      <title>MagpieCTF 2023 - So Meta</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</link>
+      <pubDate>Mon, 27 Feb 2023 23:35:28 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</guid>
+      <description>This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
+Solution In our terminal of choice, using the following command:
+strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
+A quick search for stegsolve leads me to this GitHub repo containing a stegsolve tool.
+We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</description>
+    </item>
+    
+    <item>
+      <title>MagpieCTF 2023</title>
+      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</link>
+      <pubDate>Sun, 26 Feb 2023 23:35:28 -0500</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</guid>
+      <description>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn&amp;rsquo;t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
+As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges.</description>
+    </item>
+    
     <item>
       <title>0x3 - ISSessions 2023 Standings</title>
       <link>https://shanks.dev/posts/blog-posts/0x3/</link>
@@ -44,69 +109,6 @@
       <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
 Puzzle #1 Clues:
  Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 2 [Log Analysis] [Santa&#39;s Naughty &amp; Nice Log]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</guid>
-      <description>Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
-Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 3 [OSINT] [Nothing escapes detective McRed]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</guid>
-      <description>Day 3 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about OSINT techniques.
-Learning Objectives  What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories  What is the name of the Registrar for the domain santagift.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 4 [Scanning] [Scanning through the snow]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</guid>
-      <description>Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 5 [Brute-Forcing] [He knows when you&#39;re awake]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</guid>
-      <description>Day 5 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 6 [Email Analysis] [It&#39;s beginning to look a lot like phishing]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</guid>
-      <description>Day 6 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 7 [CyberChef] [Maldocs roasting on an open fire]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</guid>
-      <description>Day 7 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives  What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data  What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
-Answer:
-9.49.0 How many recipes were used to extract URLs from the malicious doc?</description>
     </item>
     
   </channel>

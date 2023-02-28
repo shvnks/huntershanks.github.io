@@ -162,11 +162,11 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x1/">0x1 - First post</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">MagpieCTF 2023 - What is Password</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-01-24
+                        2023-02-28
                         </span>
                         
                     
@@ -180,14 +180,16 @@
                     <div class="post-content">
                         
                             
-                                <p>This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&rsquo;s hope this goes well.</p>
+                                This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
+Solution First we open the file in Wireshark.
+Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x1/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -196,11 +198,11 @@
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/">Cyber Advent 2022 - Day 1 [Frameworks] [Someone&rsquo;s coming to town!]</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">MagpieCTF 2023 - Chocolate Chips with Zero G</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2022-12-23
+                        2023-02-27
                         </span>
                         
                     
@@ -214,16 +216,16 @@
                     <div class="post-content">
                         
                             
-                                Day 1 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
-Puzzle #1 Clues:
- Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.
+                                This challenge had us visit our targets website, and look for an insecure admin portal.
+Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
+Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/cyber-advent-2022/day-01/readme/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">
                                 Read more ...
                             </a>
                         </div>

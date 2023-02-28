@@ -162,32 +162,33 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x3/">0x3 - ISSessions 2023 Standings</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">MagpieCTF 2023 - This outta be large enough right?</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-01-27
+                        2023-02-28
                         </span>
                         
                     
                         <br>
                     
                         <i class="fa-solid fa-clock"></i>
-                        One minute
+                        4 minutes
                     
                     </div>
                     
                     <div class="post-content">
                         
                             
-                                <p>Some cool news came about yesterday. ISSessions had their <a href="https://www.youtube.com/watch?v=gu28GgjoEfQ">recap</a> meeting where they released some statistics from the CTF including the top 100 players.</p>
+                                We&rsquo;re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x3/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -196,11 +197,11 @@
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x2/">0x2 - Note about the Cyber Advent writeups</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">MagpieCTF 2023 - No Password Here</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-01-24
+                        2023-02-28
                         </span>
                         
                     
@@ -214,14 +215,15 @@
                     <div class="post-content">
                         
                             
-                                <p>In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.</p>
+                                This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x2/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">
                                 Read more ...
                             </a>
                         </div>

