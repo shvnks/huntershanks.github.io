@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog on Shanks&#39; Blog</title>
-    <link>https://huntershanks.github.io/tags/blog/</link>
+    <link>https://shanks.dev/tags/blog/</link>
     <description>Recent content in blog on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate><atom:link href="https://huntershanks.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Jan 2023 21:03:19 -0500</lastBuildDate><atom:link href="https://shanks.dev/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>0x3 - ISSessions 2023 Standings</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x3/</link>
+      <link>https://shanks.dev/posts/blog-posts/0x3/</link>
       <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
       
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x3/</guid>
+      <guid>https://shanks.dev/posts/blog-posts/0x3/</guid>
       <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>0x2 - Note about the Cyber Advent writeups</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x2/</link>
+      <link>https://shanks.dev/posts/blog-posts/0x2/</link>
       <pubDate>Tue, 24 Jan 2023 19:25:41 -0500</pubDate>
       
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x2/</guid>
+      <guid>https://shanks.dev/posts/blog-posts/0x2/</guid>
       <description>&lt;p&gt;In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>0x1 - First post</title>
-      <link>https://huntershanks.github.io/posts/blog-posts/0x1/</link>
+      <link>https://shanks.dev/posts/blog-posts/0x1/</link>
       <pubDate>Tue, 24 Jan 2023 17:56:30 -0500</pubDate>
       
-      <guid>https://huntershanks.github.io/posts/blog-posts/0x1/</guid>
+      <guid>https://shanks.dev/posts/blog-posts/0x1/</guid>
       <description>&lt;p&gt;This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&amp;rsquo;s hope this goes well.&lt;/p&gt;</description>
     </item>
     
