@@ -2,38 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Shanks&#39; Blog</title>
-    <link>https://shanks.dev/tags/</link>
+    <link>https://huntershanks.github.io/tags/</link>
     <description>Recent content in Tags on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 14:26:49 -0500</lastBuildDate><atom:link href="https://shanks.dev/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ctf-writeups</title>
-      <link>https://shanks.dev/tags/ctf-writeups/</link>
-      <pubDate>Tue, 28 Feb 2023 14:26:49 -0500</pubDate>
-      
-      <guid>https://shanks.dev/tags/ctf-writeups/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cyber-security</title>
-      <link>https://shanks.dev/tags/cyber-security/</link>
-      <pubDate>Tue, 28 Feb 2023 14:26:49 -0500</pubDate>
-      
-      <guid>https://shanks.dev/tags/cyber-security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://shanks.dev/tags/blog/</link>
-      <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
-      
-      <guid>https://shanks.dev/tags/blog/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><atom:link href="https://huntershanks.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
