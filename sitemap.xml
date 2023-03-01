@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://shanks.dev/categories/</loc>
+    <lastmod>2023-02-28T14:26:49-05:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/categories/ctf/</loc>
+    <lastmod>2023-02-28T14:26:49-05:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/tags/ctf-writeups/</loc>
+    <lastmod>2023-02-28T14:26:49-05:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/categories/cyber-security/</loc>
     <lastmod>2023-02-28T14:26:49-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/tags/cyber-security/</loc>
@@ -71,14 +80,16 @@
     <loc>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</loc>
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://shanks.dev/categories/linux/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/categories/networking/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/readme/</loc>
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/about/</loc>
     <priority>0</priority>
-  </url><url>
-    <loc>https://shanks.dev/blog/</loc>
-  </url><url>
-    <loc>https://shanks.dev/series/</loc>
   </url>
 </urlset>
