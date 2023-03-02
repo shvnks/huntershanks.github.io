@@ -6,30 +6,30 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 28 Feb 2023 14:26:49 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 28 Feb 2023 14:26:57 -0500</lastBuildDate>
         <atom:link href="https://shanks.dev/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>MagpieCTF 2023 - This outta be large enough right?</title>
             <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</link>
-            <pubDate>Tue, 28 Feb 2023 14:26:49 -0500</pubDate>
+            <pubDate>Tue, 28 Feb 2023 14:26:57 -0500</pubDate>
             
             <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</guid>
-            <description>We&amp;rsquo;re given a C source code file to analyze and its executable to test with.
-Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&amp;rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.</description>
-            <content type="html"><![CDATA[<p>We&rsquo;re given a <a href="../src/chall.c">C source code file</a> to analyze and its <a href="../src/chall">executable</a> to test with.</p>
+            <description>We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.</description>
+            <content type="html"><![CDATA[<p>We’re given a <a href="../src/chall.c">C source code file</a> to analyze and its <a href="../src/chall">executable</a> to test with.</p>
 <h2 id="solution">Solution</h2>
-<p>I would like to preface this, that I have done this exact challenge from <a href="https://play.picoctf.org/">PicoCTF 2022</a>, called <code>buffer overflow 1</code> and at the time I followed along with <a href="https://www.youtube.com/watch?v=k4hqdVo3cqk">John Hammond&rsquo;s solution video</a>. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics. Nonetheless I will demonstrate the knowledge I gained at the time and share it on this writeup, but I will give credit where its due, so thanks <a href="https://www.youtube.com/@_JohnHammond">John</a>!</p>
+<p>I would like to preface this, that I have done this exact challenge from <a href="https://play.picoctf.org/">PicoCTF 2022</a>, called <code>buffer overflow 1</code> and at the time I followed along with <a href="https://www.youtube.com/watch?v=k4hqdVo3cqk">John Hammond’s solution video</a>. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics. Nonetheless I will demonstrate the knowledge I gained at the time and share it on this writeup, but I will give credit where its due, so thanks <a href="https://www.youtube.com/@_JohnHammond">John</a>!</p>
 <p>Now on to how I retrieved the flag!</p>
-<p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there&rsquo;s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
+<p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there’s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
 <p>How do we overflow the <code>gets</code> function? Well you need to pass in enough input until you can begin to control where you end up in memory. But we will need to know where in memory we want to go. How is this done? Using <code>readelf</code> I could find out where in memory the <code>win</code> function was loaded. Note that the <code>-s</code> is for symbols.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readelf -s chall
 </code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
-<p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>&rsquo;s to the program until I got a seg fault. I did this in chunks of 4 A&rsquo;s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
+<p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>’s to the program until I got a seg fault. I did this in chunks of 4 A’s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
 <p>Checking with</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dmesg
-</code></pre></div><p>We can see where the instruction pointer (ip) is pointing when it seg faults. Let&rsquo;s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
-<p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and &lsquo;invert&rsquo; it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
+</code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
+<p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and ‘invert’ it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">We want to change this address into Little Endian:
 0x08048486
 
@@ -95,17 +95,17 @@ payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</spa
         <item>
             <title>MagpieCTF 2023 - No Password Here</title>
             <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</link>
-            <pubDate>Tue, 28 Feb 2023 13:01:17 -0500</pubDate>
+            <pubDate>Tue, 28 Feb 2023 13:01:33 -0500</pubDate>
             
             <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</guid>
             <description>This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
-Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&amp;rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</description>
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</description>
             <content type="html"><![CDATA[<p>This challenge had us look at a <a href="../src/Code.c">C source code file</a> and try to find a way to cause a buffer overflow. <a href="../src/Code">Here is the compiled program</a> and its <a href="../src/lib/ld-2.27.so">lib</a>.</p>
 <h2 id="solution">Solution</h2>
-<p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it <code>scanf</code>. If you aren&rsquo;t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
-<p>Let&rsquo;s test that out by making a quick test <code>flag.txt</code> in the same directory as the <code>Code</code> executable. Now we will pass some arbirtuary input like:</p>
-<pre tabindex="0"><code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</code></pre><p>We see the output below:
+<p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
+<p>Let’s test that out by making a quick test <code>flag.txt</code> in the same directory as the Code executable. Now we will pass some arbirtuary input like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</code></pre></div><p>We see the output below:
 <img src="../imgs/overflow.png" alt="overflow"></p>
 <p>The flag is:</p>
 <pre tabindex="0"><code>magpie{5c4nf_n07_54f3}
@@ -115,7 +115,7 @@ Solution Opening the C file, we see that the file does not have the typical gets
         <item>
             <title>MagpieCTF 2023 - What is Password</title>
             <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</link>
-            <pubDate>Tue, 28 Feb 2023 12:45:30 -0500</pubDate>
+            <pubDate>Tue, 28 Feb 2023 12:45:57 -0500</pubDate>
             
             <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/</guid>
             <description>This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
@@ -133,9 +133,9 @@ Since the amount of web traffic is very small we can just analyze it manually. N
         </item>
         
         <item>
-            <title>MagpieCTF 2023 - Chocolate Chips with Zero G</title>
+            <title>MagpieCTF 2023 - Chocolate Chips With Zero G</title>
             <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</link>
-            <pubDate>Mon, 27 Feb 2023 23:36:45 -0500</pubDate>
+            <pubDate>Mon, 27 Feb 2023 23:36:33 -0500</pubDate>
             
             <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/</guid>
             <description>This challenge had us visit our targets website, and look for an insecure admin portal.
@@ -174,10 +174,10 @@ Note, you could have alternatively seen within the robots.txt that it disallows 
         
         <item>
             <title>MagpieCTF 2023 - So Meta</title>
-            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</link>
-            <pubDate>Mon, 27 Feb 2023 23:35:28 -0500</pubDate>
+            <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/</link>
+            <pubDate>Mon, 27 Feb 2023 23:35:57 -0500</pubDate>
             
-            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/so-meta/readme/</guid>
+            <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/</guid>
             <description>This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
 Solution In our terminal of choice, using the following command:
 strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
@@ -192,23 +192,23 @@ We install the stegsolver tool on my virtual machine and ran the imagine combine
 </code></pre></div><p>We can see in the output that the challengers offered a hint: <code>Have you heard of stegsolve?</code> My answer: nope.</p>
 <p>A quick search for <code>stegsolve</code> leads me to this <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">GitHub repo containing a stegsolve tool</a>.</p>
 <p>We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</p>
-<pre tabindex="0"><code>magpieCTF{H0p3fully_U_D1dnt_Brut3_f0rc3_1t}
-</code></pre>]]></content>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">magpieCTF<span style="color:#f92672">{</span>H0p3fully_U_D1dnt_Brut3_f0rc3_1t<span style="color:#f92672">}</span>
+</code></pre></div>]]></content>
         </item>
         
         <item>
             <title>MagpieCTF 2023</title>
             <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</link>
-            <pubDate>Sun, 26 Feb 2023 23:35:28 -0500</pubDate>
+            <pubDate>Sun, 26 Feb 2023 23:35:33 -0500</pubDate>
             
             <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</guid>
-            <description>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn&amp;rsquo;t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
+            <description>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn’t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
 As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges.</description>
-            <content type="html"><![CDATA[<p>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, <a href="https://magpiectf.ca/">MagpieCTF</a>. It is hosted by the <a href="https://infosecucalgary.ca/">University of Calgary Information Security Club</a>, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn&rsquo;t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.</p>
-<p>As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges. But I&rsquo;ve never been one to back down from a challenge so I steamrolled ahead.</p>
+            <content type="html"><![CDATA[<p>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, <a href="https://magpiectf.ca/">MagpieCTF</a>. It is hosted by the <a href="https://infosecucalgary.ca/">University of Calgary Information Security Club</a>, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn’t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.</p>
+<p>As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges. But I’ve never been one to back down from a challenge so I steamrolled ahead.</p>
 <p>I will be posting my writeups for each challenge that I solved successfully, and noted. Unfortunately I was unable to see my final rank since I had to leave a few hours before the CTF ended but overall it was a good experience. I learned how important it is to have a team that can communicate effectively and have a variety of skillsets which would allow for an easier time with the challenges.</p>
-<p>For those interested, below is the category breakdown:</p>
-<p><img src="../imgs/category-breakdown.png" alt="breakdown"></p>
+<p>For those interested, below is the category breakdown:
+<img src="../imgs/category-breakdown.png" alt="breakdown"></p>
 ]]></content>
         </item>
         
@@ -767,6 +767,160 @@ Authors  Shanks  Contributing Pull requests are welcome. For major changes, plea
 <p>Please make sure to update tests as appropriate.</p>
 <h2 id="license">License</h2>
 <p>This project is licensed under the <a href="https://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/aocsmartcontracts/readme/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/aocsmartcontracts/readme/</guid>
+            <description>Downloadable files These are the included files to complete the day-8 task.</description>
+            <content type="html"><![CDATA[<h1 id="downloadable-files">Downloadable files</h1>
+<p>These are the included files to complete the day-8 task.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-09/readme/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-09/readme/</guid>
+            <description>Cyber Advent 2022 - Day 9 [Pivoting] [Dock the halls] Day 9 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives     Answer:
+ Authors  Shanks  </description>
+            <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-9-span-stylecolorredpivotingspan-dock-the-halls">Cyber Advent 2022 - Day 9 [<!-- raw HTML omitted -->Pivoting<!-- raw HTML omitted -->] [Dock the halls]</h1>
+<p>Day 9 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="heading"></h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-10/readme/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-10/readme/</guid>
+            <description>Cyber Advent 2022 - Day 10 [Hack a game] [You&amp;rsquo;re a mean one, Mr. Yeti] Day 10 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives     Answer:
+ Authors  Shanks  </description>
+            <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-10-span-stylecolorredhack-a-gamespan-youre-a-mean-one-mr-yeti">Cyber Advent 2022 - Day 10 [<!-- raw HTML omitted -->Hack a game<!-- raw HTML omitted -->] [You&rsquo;re a mean one, Mr. Yeti]</h1>
+<p>Day 10 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="heading"></h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-11/readme/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-11/readme/</guid>
+            <description>Cyber Advent 2022 - Day 11 [Memory Forensics] [Not all gifts are nice] Day 11 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives     Answer:
+ Authors  Shanks  </description>
+            <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-11-span-stylecolorbluememory-forensicsspan-not-all-gifts-are-nice">Cyber Advent 2022 - Day 11 [<!-- raw HTML omitted -->Memory Forensics<!-- raw HTML omitted -->] [Not all gifts are nice]</h1>
+<p>Day 11 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="heading"></h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-12/readme/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-12/readme/</guid>
+            <description>Cyber Advent 2022 - Day 12 [Malware Analysis] [Forensic McBlue to the REVscue!] Day 12 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives     Answer:
+ Authors  Shanks  </description>
+            <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-12-span-stylecolorbluemalware-analysisspan-forensic-mcblue-to-the-revscue">Cyber Advent 2022 - Day 12 [<!-- raw HTML omitted -->Malware Analysis<!-- raw HTML omitted -->] [Forensic McBlue to the REVscue!]</h1>
+<p>Day 12 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="heading"></h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/license/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/license/</guid>
+            <description>MIT License
+Copyright (c) [2022] [Shanks]
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</description>
+            <content type="html"><![CDATA[<p>MIT License</p>
+<p>Copyright (c) [2022] [Shanks]</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title></title>
+            <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/template/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/template/</guid>
+            <description>Cyber Advent 2022 - Day # [TOPIC] [Title] Day # of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
+Learning Objectives     Answer:
+ Authors  Shanks  </description>
+            <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day--span-stylecolorredtopicspan-title">Cyber Advent 2022 - Day # [<!-- raw HTML omitted -->TOPIC<!-- raw HTML omitted -->] [Title]</h1>
+<p>Day # of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
+<h4 id="learning-objectives">Learning Objectives</h4>
+<ul>
+<li></li>
+</ul>
+<h4 id="heading"></h4>
+<p><strong>Answer:</strong></p>
+<pre tabindex="0"><code>
+</code></pre><h2 id="authors">Authors</h2>
+<ul>
+<li><a href="https://github.com/HunterShanks">Shanks</a></li>
+</ul>
 ]]></content>
         </item>
         

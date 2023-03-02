@@ -5,12 +5,12 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
+<meta name="author" content="Shanks ">
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://huntershanks.github.io/" />
+<link rel="canonical" href="https://shanks.dev/" />
 
 
     <title>
@@ -50,20 +50,13 @@
 
 
 
-    <meta property="og:title" content="Shanks&#39; Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://huntershanks.github.io/" /><meta property="og:site_name" content="Shanks&#39; Blog" />
 
 
 
 
 
 
-
-
-
-<link rel="alternate" type="application/rss+xml" href="https://huntershanks.github.io/index.xml" title="Shanks' Blog" />
+<link rel="alternate" type="application/rss+xml" href="https://shanks.dev/index.xml" title="Shanks' Blog" />
 
 
 
@@ -75,7 +68,7 @@
 
     
     
-    <body class="">
+    <body class=" bg" style="background-image: url('/black-oni.jpg');" >
     
 
     
@@ -121,23 +114,6 @@
             </div>
             
         
-            
-                <div class="submenu">
-                    <li class="dropdown">
-                        <a href="#">
-                            Tools
-                        </a>
-                        <div class="dropdown-content">
-                            
-                               <a title="SomeTool" href="#">
-                                   SomeTool
-                                </a>
-                            
-                        </div>
-                    </li>
-                </div>
-            
-        
 
     
     </ul>
@@ -150,6 +126,11 @@
                     </svg>
                 </span>
             
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
         </span>
     </span>
 </header>
@@ -162,6 +143,87 @@
             <h1></h1>
             
         
+        
+            
+            
+            
+            
+                
+            
+            
+            
+                <div class="posts">
+                
+                <div class="post on-list">
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">MagpieCTF 2023 - This outta be large enough right?</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2023-02-28
+                        </span>
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        4 minutes
+                    
+                    </div>
+                    
+                    <div class="post-content">
+                        
+                            
+                                We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
+                <div class="post on-list">
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">MagpieCTF 2023 - No Password Here</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2023-02-28
+                        </span>
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        One minute
+                    
+                    </div>
+                    
+                    <div class="post-content">
+                        
+                            
+                                This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
         
         
         
@@ -180,14 +242,12 @@
         <div class="footer__inner">
             <ul class="icons">
                     
-        <li><a href="mailto:nobody@example.com" class="icon fa-solid fa-envelope" target="_blank" rel="noopener" title="Email"></a></li>
+        <li><a href="mailto:shanks.vhuzx@8shield.net" class="icon fa-solid fa-envelope" target="_blank" rel="noopener" title="Email"></a></li>
     
         <li><a href="https://github.com/HunterShanks" class="icon fa-brands fa-github" target="_blank" rel="noopener" title="Github"></a></li>
     
-        <li><a href="https://www.linkedin.com/" class="icon fa-brands fa-linkedin" target="_blank" rel="noopener" title="Linkedin"></a></li>
-    
                 
-                <li><a href="https://huntershanks.github.io/posts/index.xml" target="_blank" title="rss" class="icon fa-solid fa-rss"></a></li>
+                <li><a href="https://shanks.dev/posts/index.xml" target="_blank" title="rss" class="icon fa-solid fa-rss"></a></li>
                 
             </ul>
         </div>
@@ -195,7 +255,7 @@
     
         <div class="footer__inner">
             <span>&copy;2023</span>&nbsp;
-            <span><a href="https://huntershanks.github.io/"></a></span>&nbsp;
+            <span><a href="https://shanks.dev/">Shanks</a></span>&nbsp;
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
         </div>
     

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Shanks ">
-<meta name="description" content="We&amp;rsquo;re given a C source code file to analyze and its executable to test with.
-Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&amp;rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics." />
+<meta name="description" content="We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics." />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -43,15 +43,15 @@ Solution I would like to preface this, that I have done this exact challenge fro
 
 
 <meta itemprop="name" content="MagpieCTF 2023 - This outta be large enough right?">
-<meta itemprop="description" content="We&rsquo;re given a C source code file to analyze and its executable to test with.
-Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics."><meta itemprop="datePublished" content="2023-02-28T14:26:49-05:00" />
-<meta itemprop="dateModified" content="2023-02-28T14:26:49-05:00" />
+<meta itemprop="description" content="We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics."><meta itemprop="datePublished" content="2023-02-28T14:26:57-05:00" />
+<meta itemprop="dateModified" content="2023-02-28T14:26:57-05:00" />
 <meta itemprop="wordCount" content="736">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MagpieCTF 2023 - This outta be large enough right?"/>
-<meta name="twitter:description" content="We&rsquo;re given a C source code file to analyze and its executable to test with.
-Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond&rsquo;s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics."/>
+<meta name="twitter:description" content="We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics."/>
 
 
 
@@ -59,11 +59,9 @@ Solution I would like to preface this, that I have done this exact challenge fro
 
     <meta property="article:section" content="CTF" />
 
-    <meta property="article:section" content="Cyber-Security" />
 
 
-
-    <meta property="article:published_time" content="2023-02-28 14:26:49 -0500 EST" />
+    <meta property="article:published_time" content="2023-02-28 14:26:57 -0500 EST" />
 
 
 
@@ -181,7 +179,6 @@ Solution I would like to preface this, that I have done this exact challenge fro
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
 
         <span class="tag"><a href="https://shanks.dev/categories/ctf/">CTF</a></span>
-        <span class="tag"><a href="https://shanks.dev/categories/cyber-security/">Cyber-Security</a></span>
         
     </p>
 
@@ -200,19 +197,19 @@ Solution I would like to preface this, that I have done this exact challenge fro
       
 
       <div class="post-content">
-        <p>We&rsquo;re given a <a href="../src/chall.c">C source code file</a> to analyze and its <a href="../src/chall">executable</a> to test with.</p>
+        <p>We’re given a <a href="../src/chall.c">C source code file</a> to analyze and its <a href="../src/chall">executable</a> to test with.</p>
 <h2 id="solution">Solution</h2>
-<p>I would like to preface this, that I have done this exact challenge from <a href="https://play.picoctf.org/">PicoCTF 2022</a>, called <code>buffer overflow 1</code> and at the time I followed along with <a href="https://www.youtube.com/watch?v=k4hqdVo3cqk">John Hammond&rsquo;s solution video</a>. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics. Nonetheless I will demonstrate the knowledge I gained at the time and share it on this writeup, but I will give credit where its due, so thanks <a href="https://www.youtube.com/@_JohnHammond">John</a>!</p>
+<p>I would like to preface this, that I have done this exact challenge from <a href="https://play.picoctf.org/">PicoCTF 2022</a>, called <code>buffer overflow 1</code> and at the time I followed along with <a href="https://www.youtube.com/watch?v=k4hqdVo3cqk">John Hammond’s solution video</a>. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics. Nonetheless I will demonstrate the knowledge I gained at the time and share it on this writeup, but I will give credit where its due, so thanks <a href="https://www.youtube.com/@_JohnHammond">John</a>!</p>
 <p>Now on to how I retrieved the flag!</p>
-<p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there&rsquo;s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
+<p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there’s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
 <p>How do we overflow the <code>gets</code> function? Well you need to pass in enough input until you can begin to control where you end up in memory. But we will need to know where in memory we want to go. How is this done? Using <code>readelf</code> I could find out where in memory the <code>win</code> function was loaded. Note that the <code>-s</code> is for symbols.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readelf -s chall
 </code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
-<p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>&rsquo;s to the program until I got a seg fault. I did this in chunks of 4 A&rsquo;s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
+<p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>’s to the program until I got a seg fault. I did this in chunks of 4 A’s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
 <p>Checking with</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dmesg
-</code></pre></div><p>We can see where the instruction pointer (ip) is pointing when it seg faults. Let&rsquo;s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
-<p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and &lsquo;invert&rsquo; it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
+</code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
+<p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and ‘invert’ it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">We want to change this address into Little Endian:
 0x08048486
 

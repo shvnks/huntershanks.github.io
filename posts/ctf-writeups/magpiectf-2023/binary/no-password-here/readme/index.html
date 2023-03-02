@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Shanks ">
 <meta name="description" content="This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
-Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&amp;rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow." />
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow." />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -44,14 +44,14 @@ Solution Opening the C file, we see that the file does not have the typical gets
 
 <meta itemprop="name" content="MagpieCTF 2023 - No Password Here">
 <meta itemprop="description" content="This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
-Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow."><meta itemprop="datePublished" content="2023-02-28T13:01:17-05:00" />
-<meta itemprop="dateModified" content="2023-02-28T13:01:17-05:00" />
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow."><meta itemprop="datePublished" content="2023-02-28T13:01:33-05:00" />
+<meta itemprop="dateModified" content="2023-02-28T13:01:33-05:00" />
 <meta itemprop="wordCount" content="126">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MagpieCTF 2023 - No Password Here"/>
 <meta name="twitter:description" content="This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
-Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren&rsquo;t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow."/>
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow."/>
 
 
 
@@ -59,11 +59,9 @@ Solution Opening the C file, we see that the file does not have the typical gets
 
     <meta property="article:section" content="CTF" />
 
-    <meta property="article:section" content="Cyber-Security" />
 
 
-
-    <meta property="article:published_time" content="2023-02-28 13:01:17 -0500 EST" />
+    <meta property="article:published_time" content="2023-02-28 13:01:33 -0500 EST" />
 
 
 
@@ -181,7 +179,6 @@ Solution Opening the C file, we see that the file does not have the typical gets
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
 
         <span class="tag"><a href="https://shanks.dev/categories/ctf/">CTF</a></span>
-        <span class="tag"><a href="https://shanks.dev/categories/cyber-security/">Cyber-Security</a></span>
         
     </p>
 
@@ -202,10 +199,10 @@ Solution Opening the C file, we see that the file does not have the typical gets
       <div class="post-content">
         <p>This challenge had us look at a <a href="../src/Code.c">C source code file</a> and try to find a way to cause a buffer overflow. <a href="../src/Code">Here is the compiled program</a> and its <a href="../src/lib/ld-2.27.so">lib</a>.</p>
 <h2 id="solution">Solution</h2>
-<p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it <code>scanf</code>. If you aren&rsquo;t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
-<p>Let&rsquo;s test that out by making a quick test <code>flag.txt</code> in the same directory as the <code>Code</code> executable. Now we will pass some arbirtuary input like:</p>
-<pre tabindex="0"><code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</code></pre><p>We see the output below:
+<p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
+<p>Let’s test that out by making a quick test <code>flag.txt</code> in the same directory as the Code executable. Now we will pass some arbirtuary input like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</code></pre></div><p>We see the output below:
 <img src="../imgs/overflow.png" alt="overflow"></p>
 <p>The flag is:</p>
 <pre tabindex="0"><code>magpie{5c4nf_n07_54f3}
