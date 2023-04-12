@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 14:26:57 -0500</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Apr 2023 14:56:40 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0x4 - MagpieCTF 2023 Writeup Standings</title>
+      <link>https://shanks.dev/posts/blog-posts/0x4/</link>
+      <pubDate>Wed, 12 Apr 2023 14:56:40 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x4/</guid>
+      <description>It&amp;rsquo;s been a few weeks but I received some great news on March 28th 2023. I was one of the three winners for the MagpieCTF 2023 writeups portion.
+They announced the winners in their Discord server on the announcements channel.
+This was a big win for me since it was my first time attempting the writeups officially. I hope to bring more writeups in the future and furhter improve my skills to transfer the knowledge that I&amp;rsquo;ve gained through my experiences with this challenges.</description>
+    </item>
+    
     <item>
       <title>MagpieCTF 2023 - This outta be large enough right?</title>
       <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</link>
@@ -98,17 +109,6 @@ As the rules prohibited players from asking third parties for solutions or metho
       
       <guid>https://shanks.dev/posts/blog-posts/0x1/</guid>
       <description>&lt;p&gt;This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&amp;rsquo;s hope this goes well.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 1 [Frameworks] [Someone&#39;s coming to town!]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</guid>
-      <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
-Puzzle #1 Clues:
- Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
     </item>
     
   </channel>

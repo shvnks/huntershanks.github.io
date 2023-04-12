@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 14:26:57 -0500</lastBuildDate><atom:link href="https://shanks.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Apr 2023 14:56:40 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://shanks.dev/tags/blog/</link>
+      <pubDate>Wed, 12 Apr 2023 14:56:40 -0400</pubDate>
+      
+      <guid>https://shanks.dev/tags/blog/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ctf-writeups</title>
       <link>https://shanks.dev/tags/ctf-writeups/</link>
@@ -23,15 +32,6 @@
       <pubDate>Tue, 28 Feb 2023 14:26:57 -0500</pubDate>
       
       <guid>https://shanks.dev/tags/cyber-security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://shanks.dev/tags/blog/</link>
-      <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
-      
-      <guid>https://shanks.dev/tags/blog/</guid>
       <description></description>
     </item>
     

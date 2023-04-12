@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://shanks.dev/posts/blog-posts/0x4/</loc>
+    <lastmod>2023-04-12T14:56:40-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/tags/blog/</loc>
+    <lastmod>2023-04-12T14:56:40-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/posts/</loc>
+    <lastmod>2023-04-12T14:56:40-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/</loc>
+    <lastmod>2023-04-12T14:56:40-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/tags/</loc>
+    <lastmod>2023-04-12T14:56:40-04:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/categories/</loc>
     <lastmod>2023-02-28T14:26:57-05:00</lastmod>
   </url><url>
@@ -15,15 +30,6 @@
     <lastmod>2023-02-28T14:26:57-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</loc>
-    <lastmod>2023-02-28T14:26:57-05:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/posts/</loc>
-    <lastmod>2023-02-28T14:26:57-05:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/</loc>
-    <lastmod>2023-02-28T14:26:57-05:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/tags/</loc>
     <lastmod>2023-02-28T14:26:57-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/</loc>
@@ -42,9 +48,6 @@
     <lastmod>2023-02-26T23:35:33-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/blog-posts/0x3/</loc>
-    <lastmod>2023-01-27T21:03:19-05:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/tags/blog/</loc>
     <lastmod>2023-01-27T21:03:19-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/blog-posts/0x2/</loc>
