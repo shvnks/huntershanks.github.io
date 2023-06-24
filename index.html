@@ -155,6 +155,44 @@
                 <div class="posts">
                 
                 <div class="post on-list">
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/">North Sec 2023 - Look Within Myself</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2023-05-25
+                        </span>
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        One minute
+                    
+                    </div>
+                    
+                    <div class="post-content">
+                        
+                            
+                                From the discourse page we are given the following information:
+Based on the information given, we have to tinker with the image posted:
+Let&rsquo;s first check if there are embedded files within the image using the following command:
+$ binwalk myself-avatar.jpg Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:
+$ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/ctf-writeups/nsec2023/look-within-myself/readme/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
+                <div class="post on-list">
                     <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x5/">0x5 - First North Sec Experience</a></h1>
                     <div class="post-meta">
                     
@@ -181,42 +219,6 @@
                         
                         <div> 
                             <a class="read-more" href="/posts/blog-posts/0x5/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x4/">0x4 - MagpieCTF 2023 Writeup Standings</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2023-04-12
-                        </span>
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        One minute
-                    
-                    </div>
-                    
-                    <div class="post-content">
-                        
-                            
-                                It&rsquo;s been a few weeks but I received some great news on March 28th 2023. I was one of the three winners for the MagpieCTF 2023 writeups portion.
-They announced the winners in their Discord server on the announcements channel.
-This was a big win for me since it was my first time attempting the writeups officially. I hope to bring more writeups in the future and furhter improve my skills to transfer the knowledge that I&rsquo;ve gained through my experiences with this challenges.
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x4/">
                                 Read more ...
                             </a>
                         </div>

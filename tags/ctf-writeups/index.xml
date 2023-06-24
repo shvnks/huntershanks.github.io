@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 28 Feb 2023 14:26:57 -0500</lastBuildDate><atom:link href="https://shanks.dev/tags/ctf-writeups/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/ctf-writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>North Sec 2023 - Look Within Myself</title>
+      <link>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</link>
+      <pubDate>Thu, 25 May 2023 21:10:04 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</guid>
+      <description>From the discourse page we are given the following information:
+Based on the information given, we have to tinker with the image posted:
+Let&amp;rsquo;s first check if there are embedded files within the image using the following command:
+$ binwalk myself-avatar.jpg Okay so there&amp;rsquo;s a zip file hidden, let&amp;rsquo;s extract it using the following command:
+$ binwalk --dd=&amp;#39;.*&amp;#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.</description>
+    </item>
+    
     <item>
       <title>MagpieCTF 2023 - This outta be large enough right?</title>
       <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</link>
@@ -103,16 +116,6 @@ Learning Objectives In today’s task, you will:
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</guid>
       <description>Day 3 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about OSINT techniques.
 Learning Objectives  What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories  What is the name of the Registrar for the domain santagift.</description>
-    </item>
-    
-    <item>
-      <title>Cyber Advent 2022 - Day 4 [Scanning] [Scanning through the snow]</title>
-      <link>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</link>
-      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</guid>
-      <description>Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
     </item>
     
   </channel>

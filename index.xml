@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 23 May 2023 16:27:34 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>North Sec 2023 - Look Within Myself</title>
+      <link>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</link>
+      <pubDate>Thu, 25 May 2023 21:10:04 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</guid>
+      <description>From the discourse page we are given the following information:
+Based on the information given, we have to tinker with the image posted:
+Let&amp;rsquo;s first check if there are embedded files within the image using the following command:
+$ binwalk myself-avatar.jpg Okay so there&amp;rsquo;s a zip file hidden, let&amp;rsquo;s extract it using the following command:
+$ binwalk --dd=&amp;#39;.*&amp;#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.</description>
+    </item>
+    
     <item>
       <title>0x5 - First North Sec Experience</title>
       <link>https://shanks.dev/posts/blog-posts/0x5/</link>
@@ -100,15 +113,6 @@ As the rules prohibited players from asking third parties for solutions or metho
       
       <guid>https://shanks.dev/posts/blog-posts/0x3/</guid>
       <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>0x2 - Note about the Cyber Advent writeups</title>
-      <link>https://shanks.dev/posts/blog-posts/0x2/</link>
-      <pubDate>Tue, 24 Jan 2023 19:25:41 -0500</pubDate>
-      
-      <guid>https://shanks.dev/posts/blog-posts/0x2/</guid>
-      <description>&lt;p&gt;In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.&lt;/p&gt;</description>
     </item>
     
   </channel>

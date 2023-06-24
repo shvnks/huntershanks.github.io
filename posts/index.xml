@@ -6,8 +6,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 23 May 2023 16:27:34 -0400</lastBuildDate>
+        <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate>
         <atom:link href="https://shanks.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>North Sec 2023 - Look Within Myself</title>
+            <link>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</link>
+            <pubDate>Thu, 25 May 2023 21:10:04 -0400</pubDate>
+            
+            <guid>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</guid>
+            <description>From the discourse page we are given the following information:
+Based on the information given, we have to tinker with the image posted:
+Let&amp;rsquo;s first check if there are embedded files within the image using the following command:
+$ binwalk myself-avatar.jpg Okay so there&amp;rsquo;s a zip file hidden, let&amp;rsquo;s extract it using the following command:
+$ binwalk --dd=&amp;#39;.*&amp;#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.</description>
+            <content type="html"><![CDATA[<p>From the discourse page we are given the following information:</p>
+<p><img src="../imgs/setup.png" alt="setup"></p>
+<p>Based on the information given, we have to tinker with the image posted:</p>
+<p><img src="../src/myself-avatar.jpg" alt="myself-avatar"></p>
+<p>Let&rsquo;s first check if there are embedded files within the image using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk myself-avatar.jpg
+</code></pre></div><p><img src="../imgs/binwalk.png" alt="binwalk"></p>
+<p>Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk --dd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.*&#39;</span> myself-avatar.jpg
+</code></pre></div><p><img src="../imgs/extract.png" alt="extract"></p>
+<p>We now have the following <a href="../src/302D9.7z">zip</a> file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be <code>password</code>.</p>
+<p>Inside the folder called <code>myself</code> we see a bunch of cat images and an interesting file called <code>myself.txt</code></p>
+<p><img src="../imgs/folder.png" alt="folder"></p>
+<p>We extract the flag from this file:</p>
+<pre tabindex="0"><code>FLAG-43e1f21fd2741b2266eaf9c6cf93b46f62b73d7d9df0fa1e98611e6f64200815
+</code></pre><p>Here was my favorite image:</p>
+<p><img src="../src/myself/cat14.png" alt="cat14"></p>
+]]></content>
+        </item>
         
         <item>
             <title>0x5 - First North Sec Experience</title>
