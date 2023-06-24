@@ -6,8 +6,42 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 12 Apr 2023 14:56:40 -0400</lastBuildDate>
+        <lastBuildDate>Tue, 23 May 2023 16:27:34 -0400</lastBuildDate>
         <atom:link href="https://shanks.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>0x5 - First North Sec Experience</title>
+            <link>https://shanks.dev/posts/blog-posts/0x5/</link>
+            <pubDate>Tue, 23 May 2023 16:27:34 -0400</pubDate>
+            
+            <guid>https://shanks.dev/posts/blog-posts/0x5/</guid>
+            <description>This year was my first ever attendance to the North Sec cyber security event. It is Canada&amp;rsquo;s largest cyber security event, consisting of 3 parts: the conference, competition (CTF) and trainings, spanning nearly a week. Depending on which package you buy, you will be given various &amp;lsquo;swag&amp;rsquo; and other items for the various events. In my case, I bought the early bird conference and competition combo since I was still a student at the time (students got a 50% off promotion code) and wanted to do some networking.</description>
+            <content type="html"><![CDATA[<p><img src="../imgs/nsec2023.png" alt="nsec2023"></p>
+<p>This year was my first ever attendance to the <a href="https://nsec.io/">North Sec</a> cyber security event. It is Canada&rsquo;s largest cyber security event, consisting of 3 parts: the conference, competition (CTF) and trainings, spanning nearly a week. Depending on which package you buy, you will be given various &lsquo;swag&rsquo; and other items for the various events. In my case, I bought the early bird conference and competition combo since I was still a student at the time (students got a 50% off promotion code) and wanted to do some networking. This year was North Sec&rsquo;s 10th anniversary so it was filled with tons of cool stuff.</p>
+<h2 id="conference">Conference</h2>
+<p>This years conference was 2 days (May 18th &amp; 19) and had many great <a href="https://nsec.io/speakers/">speakers</a> giving some fascinating talks. Here were my personal favorites:</p>
+<ul>
+<li><a href="https://nsec.io/session/2023-deception-for-pentesters.html">Deception for pentesters</a> by <a href="https://nsec.io/speaker/laurent-desaulniers.html">Laurent Desaulniers</a></li>
+<li><a href="https://nsec.io/session/2023-qa-red-team.html">Q&amp;A Red Team</a> by <a href="https://nsec.io/speaker/charles-f-hamilton-mrun1k0d3r.html">Charles F. Hamilton</a>, <a href="https://nsec.io/speaker/laurent-desaulniers.html">Laurent Desaulniers</a>, <a href="https://nsec.io/speaker/martin-dube.html">Martin Dube</a> and <a href="https://nsec.io/speaker/guillaume-caille.html">Guillaume Caillé</a></li>
+<li><a href="https://nsec.io/session/2023-abusing-github-for-fun-and-profit-actions-and-codespaces-security.html">Abusing GitHub for fun and profit: Actions and Codespaces Security</a> by <a href="https://nsec.io/speaker/magno-logan.html">Magno Logan</a></li>
+<li><a href="https://nsec.io/session/2023-behind-the-scenes-in-github-bug-bounty.html">Behind the Scenes in GitHub Bug Bounty</a> by <a href="https://nsec.io/speaker/logan-maclaren.html">Logan MacLaren</a></li>
+</ul>
+<p>The badge for accessing the conference really surprised me, I definitely did not expect to have such an intrecate pieace of hardware. Take a look:</p>
+<p><img src="../imgs/nsec2023-conf-badge.png" alt="nsec2023-conf-badge"></p>
+<p>Notice the small mushroom with an LED on it? Well in the community village, there was a soldering area and I was lucky enough to go when it was quiet, near the end of the second day and got to learn beginner skills for soldering. The badge had many challenges which unlocked levels which was really cool, though I didn&rsquo;t participate in them so much since I attended many talks.</p>
+<p><img src="../imgs/nsec2023-badge-chain.png" alt="nsec2023-badge-chain"></p>
+<h2 id="competition">Competition</h2>
+<p>The talks ended Friday evening around 17:00 and the CTF started at 20:00. I had the priviledge and pleasure to join <a href="https://cubermitis.team/">cubermitis</a>, a group of highly motivated and skilled CTF-erss for this event. We started off quite strong, holding within the top 10 position for the first 24 hours:</p>
+<p><img src="../imgs/nsec2023-winning.png" alt="winning"></p>
+<p>By the end of the event, we managed to secure 18th place on the leaderboard with 98 points, out of 76 total teams.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; askgod scoreboard                                  
+        TEAM       | POINTS |   LAST SUBMIT     
+-------------------+--------+-------------------
+  &lt;CA&gt; Cubermitis  |     <span style="color:#ae81ff">98</span> | 2023/05/21 14:57 
+</code></pre></div><p><img src="../imgs/nsec2023-final.png" alt="scoreboard"></p>
+<p>Overall, despite being quite new to the CTF scene and finding difficulty with many of the higher level challenges this year, I was proud that I managed to get a few challenges solved while helping out my teammates. The experience I got from the CTF was invaluable and well worth while, I learned a ton while having a great time. I will definitely attend following North Sec events.</p>
+]]></content>
+        </item>
         
         <item>
             <title>0x4 - MagpieCTF 2023 Writeup Standings</title>

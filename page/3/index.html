@@ -155,6 +155,42 @@
                 <div class="posts">
                 
                 <div class="post on-list">
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">MagpieCTF 2023 - What is Password</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2023-02-28
+                        </span>
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        One minute
+                    
+                    </div>
+                    
+                    <div class="post-content">
+                        
+                            
+                                This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
+Solution First we open the file in Wireshark.
+Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
+                <div class="post on-list">
                     <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">MagpieCTF 2023 - Chocolate Chips With Zero G</a></h1>
                     <div class="post-meta">
                     
@@ -183,44 +219,6 @@ Note, you could have alternatively seen within the robots.txt that it disallows 
                         
                         <div> 
                             <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/">MagpieCTF 2023 - So Meta</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2023-02-27
-                        </span>
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        One minute
-                    
-                    </div>
-                    
-                    <div class="post-content">
-                        
-                            
-                                This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
-Solution In our terminal of choice, using the following command:
-strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
-A quick search for stegsolve leads me to this GitHub repo containing a stegsolve tool.
-We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/forensics/readme/">
                                 Read more ...
                             </a>
                         </div>

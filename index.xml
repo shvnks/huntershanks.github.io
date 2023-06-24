@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 12 Apr 2023 14:56:40 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 16:27:34 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0x5 - First North Sec Experience</title>
+      <link>https://shanks.dev/posts/blog-posts/0x5/</link>
+      <pubDate>Tue, 23 May 2023 16:27:34 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x5/</guid>
+      <description>This year was my first ever attendance to the North Sec cyber security event. It is Canada&amp;rsquo;s largest cyber security event, consisting of 3 parts: the conference, competition (CTF) and trainings, spanning nearly a week. Depending on which package you buy, you will be given various &amp;lsquo;swag&amp;rsquo; and other items for the various events. In my case, I bought the early bird conference and competition combo since I was still a student at the time (students got a 50% off promotion code) and wanted to do some networking.</description>
+    </item>
+    
     <item>
       <title>0x4 - MagpieCTF 2023 Writeup Standings</title>
       <link>https://shanks.dev/posts/blog-posts/0x4/</link>
@@ -100,15 +109,6 @@ As the rules prohibited players from asking third parties for solutions or metho
       
       <guid>https://shanks.dev/posts/blog-posts/0x2/</guid>
       <description>&lt;p&gt;In order to help me improve my skills with Hugo, I figured I would mention something regarding the writeups for the Advent of Cyber.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>0x1 - First post</title>
-      <link>https://shanks.dev/posts/blog-posts/0x1/</link>
-      <pubDate>Tue, 24 Jan 2023 17:56:30 -0500</pubDate>
-      
-      <guid>https://shanks.dev/posts/blog-posts/0x1/</guid>
-      <description>&lt;p&gt;This is my first blog post using Hugo. Just getting the hang of this, tinkering around with configs and posts. Let&amp;rsquo;s hope this goes well.&lt;/p&gt;</description>
     </item>
     
   </channel>
