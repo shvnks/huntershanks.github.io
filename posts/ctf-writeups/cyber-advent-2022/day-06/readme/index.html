@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Shanks ">
 <meta name="description" content="Day 6 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis." />
+Learning Objectives Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis." />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -44,14 +44,14 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
 
 <meta itemprop="name" content="Cyber Advent 2022 - Day 6 [Email Analysis] [It&#39;s beginning to look a lot like phishing]">
 <meta itemprop="description" content="Day 6 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
+Learning Objectives Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="592">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cyber Advent 2022 - Day 6 [Email Analysis] [It&#39;s beginning to look a lot like phishing]"/>
 <meta name="twitter:description" content="Day 6 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis."/>
+Learning Objectives Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis."/>
 
 
 
@@ -90,7 +90,7 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -233,8 +233,8 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
 </ul>
 <h4 id="what-is-the-email-address-of-the-sender">What is the email address of the sender?</h4>
 <p>Following the guide that TryHackMe showed us, we use the given command <strong>after</strong> we <code>cd</code> into the <code>Desktop</code> directory:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ emlAnalyzer -i Urgent<span style="color:#ae81ff">\:</span>.eml --header --html -u --text --extract-all
-</code></pre></div><p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ emlAnalyzer -i Urgent<span style="color:#ae81ff">\:</span>.eml --header --html -u --text --extract-all
+</span></span></code></pre></div><p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
 <p><img src="../imgs/sender.png" alt="sender"></p>
 <p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>chief.elf@santaclaus.thm
@@ -468,7 +468,7 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

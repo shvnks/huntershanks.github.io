@@ -5,9 +5,41 @@
     <link>https://shanks.dev/tags/blog/</link>
     <description>Recent content in blog on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 23 May 2023 16:27:34 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 15:07:11 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0x8 - Joplin Server using Docker</title>
+      <link>https://shanks.dev/posts/blog-posts/0x8/</link>
+      <pubDate>Tue, 01 Aug 2023 15:07:11 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x8/</guid>
+      <description>I&amp;rsquo;ve recently migrated from Anytype to Joplin for my note taking and wanted to self host the cloud server. Because I currently host my website through GitHub Pages but wanted to use a subdomain to get it
+Thanks to the docker compose sample file as well as this and this video from DB Tech, I was able to setup my Joplin Server on Portainer
+Here is the official Joplin server guide</description>
+    </item>
+    
+    <item>
+      <title>0x9 - Jellyfin Server using Docker</title>
+      <link>https://shanks.dev/posts/blog-posts/0x9/</link>
+      <pubDate>Tue, 25 Jul 2023 15:07:15 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x9/</guid>
+      <description>I decided I wanted to host my own media server and I didn&amp;rsquo;t want to use Plex so I chose Jellyfin. Here&amp;rsquo;s how I set mine up using docker and Portainer.
+Docker You can use docker compose or simply deploy the app through Portainer&amp;rsquo;s UI without docker compose. Replace any $ variable with your setting. Here are the settings that I used for my docker setup:
+image: linuxserver/jellyfin:latest ports: - 1900:1900 # tcp - 8086:8086 # tcp - 7359:7359 # udp volumes: - .</description>
+    </item>
+    
+    <item>
+      <title>0x6 - Graduation from University</title>
+      <link>https://shanks.dev/posts/blog-posts/0x6/</link>
+      <pubDate>Fri, 23 Jun 2023 16:27:39 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x6/</guid>
+      <description>A few days ago I had my convocation. I finally completed my biggest academic struggle &amp;amp; achievement yet, graduating university with a Bachelor&amp;rsquo;s Degree in Computer Science. Having taken courses in nearly every semester during my time at university with the exception of my first summer semester, I am very proud to have achieved such a feat.
+Regardless of how I felt about the education itself, the friends and networks that I created was certainly the most valuable part of the journey.</description>
+    </item>
+    
     <item>
       <title>0x5 - First North Sec Experience</title>
       <link>https://shanks.dev/posts/blog-posts/0x5/</link>

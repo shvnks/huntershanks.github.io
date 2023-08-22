@@ -2,38 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://shanks.dev/posts/blog-posts/0x8/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/tags/blog/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/categories/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/tags/home-lab/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/categories/home-lab/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/posts/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/tags/</loc>
+    <lastmod>2023-08-01T15:07:11-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/posts/blog-posts/0x9/</loc>
+    <lastmod>2023-07-25T15:07:15-04:00</lastmod>
+  </url><url>
+    <loc>https://shanks.dev/posts/blog-posts/0x6/</loc>
+    <lastmod>2023-06-23T16:27:39-04:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/tags/ctf-writeups/</loc>
     <lastmod>2023-05-25T21:10:04-04:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/tags/cyber-security/</loc>
     <lastmod>2023-05-25T21:10:04-04:00</lastmod>
   </url><url>
+    <loc>https://shanks.dev/categories/cyber-security/</loc>
+    <lastmod>2023-05-25T21:10:04-04:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</loc>
-    <lastmod>2023-05-25T21:10:04-04:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/posts/</loc>
-    <lastmod>2023-05-25T21:10:04-04:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/</loc>
-    <lastmod>2023-05-25T21:10:04-04:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/tags/</loc>
     <lastmod>2023-05-25T21:10:04-04:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/blog-posts/0x5/</loc>
     <lastmod>2023-05-23T16:27:34-04:00</lastmod>
   </url><url>
-    <loc>https://shanks.dev/tags/blog/</loc>
-    <lastmod>2023-05-23T16:27:34-04:00</lastmod>
-  </url><url>
     <loc>https://shanks.dev/posts/blog-posts/0x4/</loc>
     <lastmod>2023-04-12T14:56:40-04:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/categories/</loc>
-    <lastmod>2023-02-28T14:26:57-05:00</lastmod>
-  </url><url>
-    <loc>https://shanks.dev/categories/ctf/</loc>
-    <lastmod>2023-02-28T14:26:57-05:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/</loc>
     <lastmod>2023-02-28T14:26:57-05:00</lastmod>
@@ -62,6 +77,9 @@
     <loc>https://shanks.dev/posts/blog-posts/0x1/</loc>
     <lastmod>2023-01-24T17:56:30-05:00</lastmod>
   </url><url>
+    <loc>https://shanks.dev/categories/ctf/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</loc>
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -86,9 +104,6 @@
     <loc>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</loc>
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://shanks.dev/categories/cyber-security/</loc>
-    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://shanks.dev/categories/linux/</loc>
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -99,7 +114,6 @@
     <lastmod>2022-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://shanks.dev/about/</loc>
-    <priority>0</priority>
   </url><url>
     <loc>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/aocsmartcontracts/readme/</loc>
   </url><url>

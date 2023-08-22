@@ -5,7 +5,7 @@
     <link>https://shanks.dev/tags/cyber-security/</link>
     <description>Recent content in cyber-security on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/cyber-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -103,7 +103,7 @@ As the rules prohibited players from asking third parties for solutions or metho
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</guid>
       <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
 Puzzle #1 Clues:
- Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
+Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
     </item>
     
     <item>
@@ -114,7 +114,7 @@ Puzzle #1 Clues:
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</guid>
       <description>Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
     </item>
     
   </channel>

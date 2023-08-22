@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Shanks ">
 <meta name="description" content="Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host." />
+Learning Objectives What is Scanning? Scanning types Scanning techniques Scanning tools What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host." />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -44,14 +44,14 @@ Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanni
 
 <meta itemprop="name" content="Cyber Advent 2022 - Day 4 [Scanning] [Scanning through the snow]">
 <meta itemprop="description" content="Day 4 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
+Learning Objectives What is Scanning? Scanning types Scanning techniques Scanning tools What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="378">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cyber Advent 2022 - Day 4 [Scanning] [Scanning through the snow]"/>
 <meta name="twitter:description" content="Day 4 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host."/>
+Learning Objectives What is Scanning? Scanning types Scanning techniques Scanning tools What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host."/>
 
 
 
@@ -90,7 +90,7 @@ Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanni
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -231,24 +231,24 @@ Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanni
 </ul>
 <h4 id="what-is-the-name-of-the-http-server-running-on-the-remote-host">What is the name of the HTTP server running on the remote host?</h4>
 <p>To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is <code>nmap -sV MACHINE_IP</code> which will return a list of running services on a live host. See output below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ nmap -sV MACHINE_IP
-Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-04 20:12 EST
-Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
-Host is up <span style="color:#f92672">(</span>0.099s latency<span style="color:#f92672">)</span>.
-Not shown: <span style="color:#ae81ff">996</span> closed ports
-PORT    STATE SERVICE     VERSION
-22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
-80/tcp  open  http        Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
-139/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
-445/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
-Service Info: Host: IP-MACHINE_IP; OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ nmap -sV MACHINE_IP
+</span></span><span style="display:flex;"><span>Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-04 20:12 EST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.099s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">996</span> closed ports
+</span></span><span style="display:flex;"><span>PORT    STATE SERVICE     VERSION
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>80/tcp  open  http        Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>139/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>445/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Service Info: Host: IP-MACHINE_IP; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>Apache
 </code></pre><h4 id="what-is-the-name-of-the-service-running-on-port-22-on-the-qa-server">What is the name of the service running on port 22 on the QA server?</h4>
 <p>To determine the name of the service that we are interested in we can observe the output from the above question and we notice that the service running on port 22 is <code>ssh</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PORT    STATE SERVICE     VERSION
-22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PORT    STATE SERVICE     VERSION
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>ssh
 </code></pre><h4 id="what-flag-can-you-find-after-successfully-accessing-the-samba-service">What flag can you find after successfully accessing the Samba service?</h4>
 <p>To retrieve the flag can be accomplshed in a variety of different ways. I attempted to access the Samba share through the terminal however I could not gain access to the folder of interest. Therefore I went through THM&rsquo;s AttackBox to accomplish the next 2 tasks.</p>
@@ -454,7 +454,7 @@ password: S@nta2022
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

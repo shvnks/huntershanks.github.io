@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.117.0">
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,7 @@
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -155,34 +155,33 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">MagpieCTF 2023 - Chocolate Chips With Zero G</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">MagpieCTF 2023 - This outta be large enough right?</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-27
+                        2023-02-28
                         </span>
                         
                     
                         <br>
                     
                         <i class="fa-solid fa-clock"></i>
-                        2 minutes
+                        4 minutes
                     
                     </div>
                     
                     <div class="post-content">
                         
                             
-                                This challenge had us visit our targets website, and look for an insecure admin portal.
-Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
-Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.
+                                We’re given a C source code file to analyze and its executable to test with.
+Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -191,11 +190,11 @@ Note, you could have alternatively seen within the robots.txt that it disallows 
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/">MagpieCTF 2023 - So Meta</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">MagpieCTF 2023 - No Password Here</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-27
+                        2023-02-28
                         </span>
                         
                     
@@ -209,18 +208,15 @@ Note, you could have alternatively seen within the robots.txt that it disallows 
                     <div class="post-content">
                         
                             
-                                This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
-Solution In our terminal of choice, using the following command:
-strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
-A quick search for stegsolve leads me to this GitHub repo containing a stegsolve tool.
-We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:
+                                This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
+Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/forensics/readme/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -279,7 +275,7 @@ We install the stegsolver tool on my virtual machine and ran the imagine combine
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

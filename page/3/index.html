@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.117.0">
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,7 @@
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -155,33 +155,32 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">MagpieCTF 2023 - No Password Here</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x5/">0x5 - First North Sec Experience</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-28
+                        2023-05-23
                         </span>
                         
                     
                         <br>
                     
                         <i class="fa-solid fa-clock"></i>
-                        One minute
+                        2 minutes
                     
                     </div>
                     
                     <div class="post-content">
                         
                             
-                                This challenge had us look at a C source code file and try to find a way to cause a buffer overflow. Here is the compiled program and its lib.
-Solution Opening the C file, we see that the file does not have the typical gets function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, scanf does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.
+                                This year was my first ever attendance to the North Sec cyber security event. It is Canada&rsquo;s largest cyber security event, consisting of 3 parts: the conference, competition (CTF) and trainings, spanning nearly a week. Depending on which package you buy, you will be given various &lsquo;swag&rsquo; and other items for the various events. In my case, I bought the early bird conference and competition combo since I was still a student at the time (students got a 50% off promotion code) and wanted to do some networking.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/no-password-here/readme/">
+                            <a class="read-more" href="/posts/blog-posts/0x5/">
                                 Read more ...
                             </a>
                         </div>
@@ -190,11 +189,11 @@ Solution Opening the C file, we see that the file does not have the typical gets
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">MagpieCTF 2023 - What is Password</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x4/">0x4 - MagpieCTF 2023 Writeup Standings</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-28
+                        2023-04-12
                         </span>
                         
                     
@@ -208,16 +207,16 @@ Solution Opening the C file, we see that the file does not have the typical gets
                     <div class="post-content">
                         
                             
-                                This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
-Solution First we open the file in Wireshark.
-Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.
+                                It&rsquo;s been a few weeks but I received some great news on March 28th 2023. I was one of the three winners for the MagpieCTF 2023 writeups portion.
+They announced the winners in their Discord server on the announcements channel.
+This was a big win for me since it was my first time attempting the writeups officially. I hope to bring more writeups in the future and furhter improve my skills to transfer the knowledge that I&rsquo;ve gained through my experiences with this challenges.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">
+                            <a class="read-more" href="/posts/blog-posts/0x4/">
                                 Read more ...
                             </a>
                         </div>
@@ -276,7 +275,7 @@ Since the amount of web traffic is very small we can just analyze it manually. N
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

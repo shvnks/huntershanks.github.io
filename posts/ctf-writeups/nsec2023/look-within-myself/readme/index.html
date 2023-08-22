@@ -66,6 +66,8 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
 
 
 
+    <meta property="article:section" content="Cyber-Security" />
+
 
 
     <meta property="article:published_time" content="2023-05-25 21:10:04 -0400 EDT" />
@@ -91,7 +93,7 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -182,6 +184,13 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
     </p>
 
       
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://shanks.dev/categories/cyber-security/">Cyber-Security</a></span>
+        
+    </p>
+
       </p>
     </div>
 
@@ -202,11 +211,11 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
 <p>Based on the information given, we have to tinker with the image posted:</p>
 <p><img src="../src/myself-avatar.jpg" alt="myself-avatar"></p>
 <p>Let&rsquo;s first check if there are embedded files within the image using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk myself-avatar.jpg
-</code></pre></div><p><img src="../imgs/binwalk.png" alt="binwalk"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ binwalk myself-avatar.jpg
+</span></span></code></pre></div><p><img src="../imgs/binwalk.png" alt="binwalk"></p>
 <p>Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk --dd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.*&#39;</span> myself-avatar.jpg
-</code></pre></div><p><img src="../imgs/extract.png" alt="extract"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ binwalk --dd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.*&#39;</span> myself-avatar.jpg
+</span></span></code></pre></div><p><img src="../imgs/extract.png" alt="extract"></p>
 <p>We now have the following <a href="../src/302D9.7z">zip</a> file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be <code>password</code>.</p>
 <p>Inside the folder called <code>myself</code> we see a bunch of cat images and an interesting file called <code>myself.txt</code></p>
 <p><img src="../imgs/folder.png" alt="folder"></p>
@@ -229,6 +238,13 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
         
 
         <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://shanks.dev/posts/blog-posts/0x6/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">0x6 - Graduation from University</span>
+                </a>
+            </span>
             
 
             
@@ -385,7 +401,7 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

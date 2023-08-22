@@ -7,7 +7,7 @@
 <meta name="author" content="Shanks ">
 <meta name="description" content="Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!" />
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!" />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -46,7 +46,7 @@ Learning Objectives In today’s task, you will:
 <meta itemprop="name" content="Cyber Advent 2022 - Day 2 [Log Analysis] [Santa&#39;s Naughty &amp; Nice Log]">
 <meta itemprop="description" content="Day 2 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!"><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!"><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="590">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
@@ -54,7 +54,7 @@ Learning Objectives In today’s task, you will:
 <meta name="twitter:title" content="Cyber Advent 2022 - Day 2 [Log Analysis] [Santa&#39;s Naughty &amp; Nice Log]"/>
 <meta name="twitter:description" content="Day 2 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!"/>
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!"/>
 
 
 
@@ -93,7 +93,7 @@ Learning Objectives In today’s task, you will:
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -237,25 +237,25 @@ Learning Objectives In today’s task, you will:
 <h4 id="use-the-ls-command-to-list-the-files-present-in-the-current-directory-how-many-log-files-are-present">Use the <code>ls</code> command to list the files present in the current directory. How many log files are present?</h4>
 <p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
 <p>Count the number of files that are output to the terminal.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
-SSHD.log webserver.log
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>SSHD.log webserver.log
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>2
 </code></pre><h4 id="elf-mcskidy-managed-to-capture-the-logs-generated-by-the-web-server-what-is-the-name-of-this-log-file">Elf McSkidy managed to capture the logs generated by the web server. What is the name of this log file?</h4>
 <p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
 <p>We are looking for a webserver log file, conveniently, we notice <code>webserver.log</code> exists within the <code>/home/elfmcblue</code> directory.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
-SSHD.log webserver.log
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>SSHD.log webserver.log
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>webserrver.log
 </code></pre><h4 id="on-what-day-was-santas-naughty-and-nice-list-stolen">On what day was Santa&rsquo;s naughty and nice list stolen?</h4>
 <p>Our first attempt with <code>grep</code>. We chose the <code>-i</code> option because we aren&rsquo;t sure how the word <code>stolen</code> will be written in the log files. Furthermore since we are interested in the webserver logs, we will grep through that file. We notice that the date is November 18th. Checking our calendar, that leads us to the answer. Another possible way to arrive to this conclusion is</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;stolen&#34;</span> webserver.log
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:23 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /ReceivingStolenGoodsOnline HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:24 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /011003-new_uk_database_mkes_stolen_pho HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /alone_on_preikestoten HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /stolen_pc_holds_1 HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -i <span style="color:#e6db74">&#34;stolen&#34;</span> webserver.log
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:23 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /ReceivingStolenGoodsOnline HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:24 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /011003-new_uk_database_mkes_stolen_pho HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /alone_on_preikestoten HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /stolen_pc_holds_1 HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>Friday
 </code></pre><h4 id="what-is-the-ip-address-of-the-attacker">What is the IP address of the attacker?</h4>
 <p>In the output of the above grep command, we notice that the IP address is shown in the logs. This IP address is particularly persistent in its requests to the webserver. Therefore we can infer that the IP address making these requests is from the attacker.</p>
@@ -263,15 +263,15 @@ SSHD.log webserver.log
 <pre tabindex="0"><code>10.10.249.191
 </code></pre><h4 id="what-is-the-name-of-the-important-list-that-the-attacker-stole-from-santa">What is the name of the important list that the attacker stole from Santa?</h4>
 <p>Knowing that the file we are looking for is a <code>list</code>, we can infer that the most likely name format of this list would be <code>something_list.txt</code> or <code>someList.txt</code>. It is common practice to use a easily readable file format like <code>.txt</code> extension. Therefore we use <code>-i</code> to ignore the case in the event that the list is written in <a href="https://en.wikipedia.org/wiki/Snake_case">snake case</a> or <a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>. We could have used the <code>-r</code> option instead of specifying the <code>webserver.log</code> file in case there were more than 2 files in the current working directory. However, it was most likely going to be logged within the <code>webserver.log</code> file so we chose that option instead.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;list.txt&#34;</span> webserver.log
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:34:39 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /santaslist.txt HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">133872</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Wget/1.19.4 (linux-gnu)&#34;</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -i <span style="color:#e6db74">&#34;list.txt&#34;</span> webserver.log
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:34:39 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /santaslist.txt HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">133872</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Wget/1.19.4 (linux-gnu)&#34;</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>santaslist.txt
 </code></pre><h4 id="look-through-the-log-files-for-the-flag-the-format-of-the-flag-is-thm">Look through the log files for the flag. The format of the flag is: THM</h4>
 <p>Using the <code>-r</code> option, we recursively iterate through all of the files within the current working directory (<code>pwd</code>) and search for the beginning portion of the flag format that consistantly remains the same: <code>&quot;THM{&quot;</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -r <span style="color:#e6db74">&#34;THM{&#34;</span>
-SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="color:#f92672">}</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -r <span style="color:#e6db74">&#34;THM{&#34;</span>
+</span></span><span style="display:flex;"><span>SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>THM{STOLENSANTASLIST}
 </code></pre><h2 id="authors">Authors</h2>
 <ul>
@@ -455,7 +455,7 @@ SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="col
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

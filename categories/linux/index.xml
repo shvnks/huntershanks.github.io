@@ -5,7 +5,7 @@
     <link>https://shanks.dev/categories/linux/</link>
     <description>Recent content in Linux on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 23 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shanks.dev/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -16,7 +16,7 @@
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</guid>
       <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
 Puzzle #1 Clues:
- Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
+Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@ Puzzle #1 Clues:
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</guid>
       <description>Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Learning Objectives In today’s task, you will:
       
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</guid>
       <description>Day 3 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about OSINT techniques.
-Learning Objectives  What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories  What is the name of the Registrar for the domain santagift.</description>
+Learning Objectives What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories What is the name of the Registrar for the domain santagift.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ Learning Objectives  What is OSINT, and what techniques can extract useful infor
       
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</guid>
       <description>Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
+Learning Objectives What is Scanning? Scanning types Scanning techniques Scanning tools What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanni
       
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</guid>
       <description>Day 5 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
+Learning Objectives Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client. Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@ Learning Objectives  Learn about common remote access services. Recognize a list
       
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</guid>
       <description>Day 6 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
+Learning Objectives Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
       
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</guid>
       <description>Day 7 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives  What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data  What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
+Learning Objectives What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
 Answer:
 9.49.0 How many recipes were used to extract URLs from the malicious doc?</description>
     </item>
@@ -90,7 +90,7 @@ Answer:
       <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</guid>
       <description>Day 8 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about smart contracts and their relation to the blockchain.
 Downloadable files These are the included files to complete the day-8 task.
-Learning Objectives  Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
+Learning Objectives Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
     </item>
     
   </channel>

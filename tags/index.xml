@@ -5,9 +5,27 @@
     <link>https://shanks.dev/tags/</link>
     <description>Recent content in Tags on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 15:07:11 -0400</lastBuildDate><atom:link href="https://shanks.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://shanks.dev/tags/blog/</link>
+      <pubDate>Tue, 01 Aug 2023 15:07:11 -0400</pubDate>
+      
+      <guid>https://shanks.dev/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>home-lab</title>
+      <link>https://shanks.dev/tags/home-lab/</link>
+      <pubDate>Tue, 01 Aug 2023 15:07:11 -0400</pubDate>
+      
+      <guid>https://shanks.dev/tags/home-lab/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ctf-writeups</title>
       <link>https://shanks.dev/tags/ctf-writeups/</link>
@@ -23,15 +41,6 @@
       <pubDate>Thu, 25 May 2023 21:10:04 -0400</pubDate>
       
       <guid>https://shanks.dev/tags/cyber-security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://shanks.dev/tags/blog/</link>
-      <pubDate>Tue, 23 May 2023 16:27:34 -0400</pubDate>
-      
-      <guid>https://shanks.dev/tags/blog/</guid>
       <description></description>
     </item>
     

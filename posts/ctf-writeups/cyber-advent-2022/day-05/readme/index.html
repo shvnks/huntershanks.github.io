@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Shanks ">
 <meta name="description" content="Day 5 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP." />
+Learning Objectives Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client. Use Hydra to find the VNC password of the target with IP address MACHINE_IP." />
 <meta name="keywords" content=", ctf-writeups, cyber-security" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -44,14 +44,14 @@ Learning Objectives  Learn about common remote access services. Recognize a list
 
 <meta itemprop="name" content="Cyber Advent 2022 - Day 5 [Brute-Forcing] [He knows when you&#39;re awake]">
 <meta itemprop="description" content="Day 5 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
+Learning Objectives Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client. Use Hydra to find the VNC password of the target with IP address MACHINE_IP."><meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-12-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="341">
 <meta itemprop="keywords" content="ctf-writeups,cyber-security," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cyber Advent 2022 - Day 5 [Brute-Forcing] [He knows when you&#39;re awake]"/>
 <meta name="twitter:description" content="Day 5 of tryhackme&rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP."/>
+Learning Objectives Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client. Use Hydra to find the VNC password of the target with IP address MACHINE_IP."/>
 
 
 
@@ -90,7 +90,7 @@ Learning Objectives  Learn about common remote access services. Recognize a list
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -231,19 +231,19 @@ Learning Objectives  Learn about common remote access services. Recognize a list
 </ul>
 <h4 id="use-hydra-to-find-the-vnc-password-of-the-target-with-ip-address-machine_ip-what-is-the-password">Use Hydra to find the VNC password of the target with IP address <code>MACHINE_IP</code>. What is the password?</h4>
 <p>Before we begin using Hydra, we can use <code>nmap</code> to see that there is a vnc service running on our target machine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ sudo nmap -sS MACHINE_IP
-Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-05 20:45 EST
-Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
-Host is up <span style="color:#f92672">(</span>0.12s latency<span style="color:#f92672">)</span>.
-Not shown: <span style="color:#ae81ff">998</span> closed ports
-PORT     STATE SERVICE
-22/tcp   open  ssh
-5900/tcp open  vnc
-
-Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 3.00 seconds
-</code></pre></div><p>Now onward to using hydra. For this we don&rsquo;t pass any username (<code>-l</code> option) but we will be using the popular <code>rockyou.txt</code> file which contains the worlds most common passwords. We will accomplish the task using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ hydra -P /path/to/rockyou.txt MACHINE_IP vnc
-</code></pre></div><p>Below is the output from using the above command in the AttackBox:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ sudo nmap -sS MACHINE_IP
+</span></span><span style="display:flex;"><span>Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-05 20:45 EST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.12s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">998</span> closed ports
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh
+</span></span><span style="display:flex;"><span>5900/tcp open  vnc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 3.00 seconds
+</span></span></code></pre></div><p>Now onward to using hydra. For this we don&rsquo;t pass any username (<code>-l</code> option) but we will be using the popular <code>rockyou.txt</code> file which contains the worlds most common passwords. We will accomplish the task using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ hydra -P /path/to/rockyou.txt MACHINE_IP vnc
+</span></span></code></pre></div><p>Below is the output from using the above command in the AttackBox:</p>
 <p><img src="../imgs/hydra-pw.png" alt="hydra"></p>
 <p>We notice that after some time, hydra does in fact find the password to the vnc server via brute-force.</p>
 <p><strong>Answer:</strong></p>
@@ -451,7 +451,7 @@ Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</spa
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

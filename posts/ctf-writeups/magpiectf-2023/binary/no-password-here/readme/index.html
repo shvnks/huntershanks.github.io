@@ -57,7 +57,7 @@ Solution Opening the C file, we see that the file does not have the typical gets
 
 
 
-    <meta property="article:section" content="CTF" />
+    <meta property="article:section" content="Cyber-Security" />
 
 
 
@@ -84,7 +84,7 @@ Solution Opening the C file, we see that the file does not have the typical gets
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -178,7 +178,7 @@ Solution Opening the C file, we see that the file does not have the typical gets
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
 
-        <span class="tag"><a href="https://shanks.dev/categories/ctf/">CTF</a></span>
+        <span class="tag"><a href="https://shanks.dev/categories/cyber-security/">Cyber-Security</a></span>
         
     </p>
 
@@ -201,8 +201,8 @@ Solution Opening the C file, we see that the file does not have the typical gets
 <h2 id="solution">Solution</h2>
 <p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
 <p>Let’s test that out by making a quick test <code>flag.txt</code> in the same directory as the Code executable. Now we will pass some arbirtuary input like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</code></pre></div><p>We see the output below:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span></code></pre></div><p>We see the output below:
 <img src="../imgs/overflow.png" alt="overflow"></p>
 <p>The flag is:</p>
 <pre tabindex="0"><code>magpie{5c4nf_n07_54f3}
@@ -384,7 +384,7 @@ Solution Opening the C file, we see that the file does not have the typical gets
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

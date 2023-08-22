@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/shanks/Documents/website/blog/myblog",
+	"sourceRoot": "D:/tech/applications/website/blog/myblog",
 	"sources": [
 		"themes/hello-4s3ti/assets/scss/main.scss",
 		"themes/hello-4s3ti/assets/scss/_normalize.scss",

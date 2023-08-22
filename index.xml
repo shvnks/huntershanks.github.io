@@ -5,9 +5,41 @@
     <link>https://shanks.dev/</link>
     <description>Recent content on Shanks&#39; Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 25 May 2023 21:10:04 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 15:07:11 -0400</lastBuildDate><atom:link href="https://shanks.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>0x8 - Joplin Server using Docker</title>
+      <link>https://shanks.dev/posts/blog-posts/0x8/</link>
+      <pubDate>Tue, 01 Aug 2023 15:07:11 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x8/</guid>
+      <description>I&amp;rsquo;ve recently migrated from Anytype to Joplin for my note taking and wanted to self host the cloud server. Because I currently host my website through GitHub Pages but wanted to use a subdomain to get it
+Thanks to the docker compose sample file as well as this and this video from DB Tech, I was able to setup my Joplin Server on Portainer
+Here is the official Joplin server guide</description>
+    </item>
+    
+    <item>
+      <title>0x9 - Jellyfin Server using Docker</title>
+      <link>https://shanks.dev/posts/blog-posts/0x9/</link>
+      <pubDate>Tue, 25 Jul 2023 15:07:15 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x9/</guid>
+      <description>I decided I wanted to host my own media server and I didn&amp;rsquo;t want to use Plex so I chose Jellyfin. Here&amp;rsquo;s how I set mine up using docker and Portainer.
+Docker You can use docker compose or simply deploy the app through Portainer&amp;rsquo;s UI without docker compose. Replace any $ variable with your setting. Here are the settings that I used for my docker setup:
+image: linuxserver/jellyfin:latest ports: - 1900:1900 # tcp - 8086:8086 # tcp - 7359:7359 # udp volumes: - .</description>
+    </item>
+    
+    <item>
+      <title>0x6 - Graduation from University</title>
+      <link>https://shanks.dev/posts/blog-posts/0x6/</link>
+      <pubDate>Fri, 23 Jun 2023 16:27:39 -0400</pubDate>
+      
+      <guid>https://shanks.dev/posts/blog-posts/0x6/</guid>
+      <description>A few days ago I had my convocation. I finally completed my biggest academic struggle &amp;amp; achievement yet, graduating university with a Bachelor&amp;rsquo;s Degree in Computer Science. Having taken courses in nearly every semester during my time at university with the exception of my first summer semester, I am very proud to have achieved such a feat.
+Regardless of how I felt about the education itself, the friends and networks that I created was certainly the most valuable part of the journey.</description>
+    </item>
+    
     <item>
       <title>North Sec 2023 - Look Within Myself</title>
       <link>https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/</link>
@@ -81,38 +113,6 @@ Since the amount of web traffic is very small we can just analyze it manually. N
       <description>This challenge had us visit our targets website, and look for an insecure admin portal.
 Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
 Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.</description>
-    </item>
-    
-    <item>
-      <title>MagpieCTF 2023 - So Meta</title>
-      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/</link>
-      <pubDate>Mon, 27 Feb 2023 23:35:57 -0500</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/forensics/readme/</guid>
-      <description>This challenge had us look at 2 Portable Network Graphic (PNG) files that were mangled and half-destroyed. See below:
-Solution In our terminal of choice, using the following command:
-strings challenge.png We can see in the output that the challengers offered a hint: Have you heard of stegsolve? My answer: nope.
-A quick search for stegsolve leads me to this GitHub repo containing a stegsolve tool.
-We install the stegsolver tool on my virtual machine and ran the imagine combiner tool under the analyse tab to retrieve the flag:</description>
-    </item>
-    
-    <item>
-      <title>MagpieCTF 2023</title>
-      <link>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</link>
-      <pubDate>Sun, 26 Feb 2023 23:35:33 -0500</pubDate>
-      
-      <guid>https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/</guid>
-      <description>Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn’t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
-As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges.</description>
-    </item>
-    
-    <item>
-      <title>0x3 - ISSessions 2023 Standings</title>
-      <link>https://shanks.dev/posts/blog-posts/0x3/</link>
-      <pubDate>Fri, 27 Jan 2023 21:03:19 -0500</pubDate>
-      
-      <guid>https://shanks.dev/posts/blog-posts/0x3/</guid>
-      <description>&lt;p&gt;Some cool news came about yesterday. ISSessions had their &lt;a href=&#34;https://www.youtube.com/watch?v=gu28GgjoEfQ&#34;&gt;recap&lt;/a&gt; meeting where they released some statistics from the CTF including the top 100 players.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.117.0">
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,7 @@
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -155,11 +155,11 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/readme/">MagpieCTF 2023</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">MagpieCTF 2023 - What is Password</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-26
+                        2023-02-28
                         </span>
                         
                     
@@ -173,15 +173,16 @@
                     <div class="post-content">
                         
                             
-                                Time for my second CTF! Over the weekend (Feb 24-26 2023) I participated in my second CTF competition, MagpieCTF. It is hosted by the University of Calgary Information Security Club, geared towards beginner to intermediate level players. Since my first CTF left me a little disapointed as my team didn’t cooperate as one, I chose to tackle this one alone. Oh boy did that make it much more difficult.
-As the rules prohibited players from asking third parties for solutions or methods of attack, I was left only with the power of browsing the web in research so I can learn of different methods to solve the challenges.
+                                This challenge had us look at a pcap file and look through the web traffic. The file can be found here.
+Solution First we open the file in Wireshark.
+Since the amount of web traffic is very small we can just analyze it manually. Notice the HTTP GET request for /Password.PNG in frame 4. After nearly 10 ACKs and PSHs, we get our server response code 200, HTTP OK in frame 15.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/readme/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/networks/what-is-password/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -190,32 +191,34 @@ As the rules prohibited players from asking third parties for solutions or metho
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x3/">0x3 - ISSessions 2023 Standings</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">MagpieCTF 2023 - Chocolate Chips With Zero G</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-01-27
+                        2023-02-27
                         </span>
                         
                     
                         <br>
                     
                         <i class="fa-solid fa-clock"></i>
-                        One minute
+                        2 minutes
                     
                     </div>
                     
                     <div class="post-content">
                         
                             
-                                <p>Some cool news came about yesterday. ISSessions had their <a href="https://www.youtube.com/watch?v=gu28GgjoEfQ">recap</a> meeting where they released some statistics from the CTF including the top 100 players.</p>
+                                This challenge had us visit our targets website, and look for an insecure admin portal.
+Solution Default websites often have a login/admin.html/php web page for admin users to login and modify certain elements. Using this information we can quickly test it, it never hurts to try right? As such we find that http://srv1.2023.magpiectf.ca:1234/admin.html exists.
+Note, you could have alternatively seen within the robots.txt that it disallows the traversal/crawling of /admin.html or you could have seen the invisible link within the nav bar.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x3/">
+                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/web/chocolate-chips-with-zero-g/">
                                 Read more ...
                             </a>
                         </div>
@@ -274,7 +277,7 @@ As the rules prohibited players from asking third parties for solutions or metho
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

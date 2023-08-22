@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.117.0">
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,7 @@
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -155,11 +155,11 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x4/">0x4 - MagpieCTF 2023 Writeup Standings</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x6/">0x6 - Graduation from University</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-04-12
+                        2023-06-23
                         </span>
                         
                     
@@ -173,16 +173,15 @@
                     <div class="post-content">
                         
                             
-                                It&rsquo;s been a few weeks but I received some great news on March 28th 2023. I was one of the three winners for the MagpieCTF 2023 writeups portion.
-They announced the winners in their Discord server on the announcements channel.
-This was a big win for me since it was my first time attempting the writeups officially. I hope to bring more writeups in the future and furhter improve my skills to transfer the knowledge that I&rsquo;ve gained through my experiences with this challenges.
+                                A few days ago I had my convocation. I finally completed my biggest academic struggle &amp; achievement yet, graduating university with a Bachelor&rsquo;s Degree in Computer Science. Having taken courses in nearly every semester during my time at university with the exception of my first summer semester, I am very proud to have achieved such a feat.
+Regardless of how I felt about the education itself, the friends and networks that I created was certainly the most valuable part of the journey.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x4/">
+                            <a class="read-more" href="/posts/blog-posts/0x6/">
                                 Read more ...
                             </a>
                         </div>
@@ -191,33 +190,36 @@ This was a big win for me since it was my first time attempting the writeups off
                 </div> 
             
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">MagpieCTF 2023 - This outta be large enough right?</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/">North Sec 2023 - Look Within Myself</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-02-28
+                        2023-05-25
                         </span>
                         
                     
                         <br>
                     
                         <i class="fa-solid fa-clock"></i>
-                        4 minutes
+                        One minute
                     
                     </div>
                     
                     <div class="post-content">
                         
                             
-                                We’re given a C source code file to analyze and its executable to test with.
-Solution I would like to preface this, that I have done this exact challenge from PicoCTF 2022, called buffer overflow 1 and at the time I followed along with John Hammond’s solution video. As a result, when I saw this challenge, I immediately recognized it and thus I used the solution developed by John Hammond, and simply modified it for this challenges specifics.
+                                From the discourse page we are given the following information:
+Based on the information given, we have to tinker with the image posted:
+Let&rsquo;s first check if there are embedded files within the image using the following command:
+$ binwalk myself-avatar.jpg Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:
+$ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/magpiectf-2023/binary/this-outta-be-large-enough-right/readme/">
+                            <a class="read-more" href="/posts/ctf-writeups/nsec2023/look-within-myself/readme/">
                                 Read more ...
                             </a>
                         </div>
@@ -276,7 +278,7 @@ Solution I would like to preface this, that I have done this exact challenge fro
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 

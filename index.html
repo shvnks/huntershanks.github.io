@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.92.2" />
+	<meta name="generator" content="Hugo 0.117.0">
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,7 @@
         <a href="/" style="text-decoration: none;">
     <div class="logo">
         
-            <span class="logo__mark">></span>
+            <span class="logo__mark">&gt;</span>
             <span class="logo__text">shanks</span>
             <span class="logo__cursor" style=
                   "
@@ -155,11 +155,47 @@
                 <div class="posts">
                 
                 <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/ctf-writeups/nsec2023/look-within-myself/readme/">North Sec 2023 - Look Within Myself</a></h1>
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x8/">0x8 - Joplin Server using Docker</a></h1>
                     <div class="post-meta">
                     
                         <span class="post-date">
-                        2023-05-25
+                        2023-08-01
+                        </span>
+                        
+                    
+                        <br>
+                    
+                        <i class="fa-solid fa-clock"></i>
+                        4 minutes
+                    
+                    </div>
+                    
+                    <div class="post-content">
+                        
+                            
+                                I&rsquo;ve recently migrated from Anytype to Joplin for my note taking and wanted to self host the cloud server. Because I currently host my website through GitHub Pages but wanted to use a subdomain to get it
+Thanks to the docker compose sample file as well as this and this video from DB Tech, I was able to setup my Joplin Server on Portainer
+Here is the official Joplin server guide
+                            
+                        
+                    </div>
+                    
+                        
+                        <div> 
+                            <a class="read-more" href="/posts/blog-posts/0x8/">
+                                Read more ...
+                            </a>
+                        </div>
+                        
+                    
+                </div> 
+            
+                <div class="post on-list">
+                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x9/">0x9 - Jellyfin Server using Docker</a></h1>
+                    <div class="post-meta">
+                    
+                        <span class="post-date">
+                        2023-07-25
                         </span>
                         
                     
@@ -173,52 +209,16 @@
                     <div class="post-content">
                         
                             
-                                From the discourse page we are given the following information:
-Based on the information given, we have to tinker with the image posted:
-Let&rsquo;s first check if there are embedded files within the image using the following command:
-$ binwalk myself-avatar.jpg Okay so there&rsquo;s a zip file hidden, let&rsquo;s extract it using the following command:
-$ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file, it is password protected. From here we could attempt to brute force it with a tool but I was lucky and guessed the correct password to be password.
+                                I decided I wanted to host my own media server and I didn&rsquo;t want to use Plex so I chose Jellyfin. Here&rsquo;s how I set mine up using docker and Portainer.
+Docker You can use docker compose or simply deploy the app through Portainer&rsquo;s UI without docker compose. Replace any $ variable with your setting. Here are the settings that I used for my docker setup:
+image: linuxserver/jellyfin:latest ports: - 1900:1900 # tcp - 8086:8086 # tcp - 7359:7359 # udp volumes: - .
                             
                         
                     </div>
                     
                         
                         <div> 
-                            <a class="read-more" href="/posts/ctf-writeups/nsec2023/look-within-myself/readme/">
-                                Read more ...
-                            </a>
-                        </div>
-                        
-                    
-                </div> 
-            
-                <div class="post on-list">
-                    <h1 class="post-title"><a href="https://shanks.dev/posts/blog-posts/0x5/">0x5 - First North Sec Experience</a></h1>
-                    <div class="post-meta">
-                    
-                        <span class="post-date">
-                        2023-05-23
-                        </span>
-                        
-                    
-                        <br>
-                    
-                        <i class="fa-solid fa-clock"></i>
-                        2 minutes
-                    
-                    </div>
-                    
-                    <div class="post-content">
-                        
-                            
-                                This year was my first ever attendance to the North Sec cyber security event. It is Canada&rsquo;s largest cyber security event, consisting of 3 parts: the conference, competition (CTF) and trainings, spanning nearly a week. Depending on which package you buy, you will be given various &lsquo;swag&rsquo; and other items for the various events. In my case, I bought the early bird conference and competition combo since I was still a student at the time (students got a 50% off promotion code) and wanted to do some networking.
-                            
-                        
-                    </div>
-                    
-                        
-                        <div> 
-                            <a class="read-more" href="/posts/blog-posts/0x5/">
+                            <a class="read-more" href="/posts/blog-posts/0x9/">
                                 Read more ...
                             </a>
                         </div>
@@ -277,7 +277,7 @@ $ binwalk --dd=&#39;.*&#39; myself-avatar.jpg We now have the following zip file
 
 
 
-<script type="text/javascript" src="/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="/bundle.min.bb2c6bc3ed452ca4759660e4020811f248bc2320081559e8a32d8b0092773852941133639d35e8370d03d3ddaa750b1edd6b343c5bd22a55d5bdeae8f648f49b.js" integrity="sha512-uyxrw&#43;1FLKR1lmDkAggR8ki8IyAIFVnooy2LAJJ3OFKUETNjnTXoNw0D092qdQse3Ws0PFvSKlXVvero9kj0mw=="></script>
 
 
 
